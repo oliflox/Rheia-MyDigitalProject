@@ -8,7 +8,7 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Address;
 
 class MailerService{
-    public function __construct(private readonly MailerInterface $mailerInterface){}
+    public function __construct(private readonly MailerInterface $mailer){}
 
     public function send(
         string $to,
