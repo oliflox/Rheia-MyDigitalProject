@@ -1,5 +1,13 @@
 {
-  "assets/app.css": "/assets/app.b58abbbb.css",
+  "assets/app.css": "/assets/app.a17620be.css",
   "assets/app.js": "/assets/app.4fe7be59.js",
-  "assets/runtime.js": "/assets/runtime.62bcf186.js"
+  "assets/runtime.js": "/assets/runtime.62bcf186.js",
+  "assets/images/Bg_Top_Home.jpg": "/assets/images/Bg_Top_Home.59e0446d.jpg",
+  "assets/fonts/astro-earth.ttf": "/assets/fonts/astro-earth.3437634d.ttf",
+  "assets/fonts/RedHatDisplay-VariableFont_wght.ttf": "/assets/fonts/RedHatDisplay-VariableFont_wght.efce1fc0.ttf",
+  "assets/images/Bg_chiffres.svg": "/assets/images/Bg_chiffres.2bf96bc6.svg",
+  "assets/images/Mascotte_rheia.svg": "/assets/images/Mascotte_rheia.5d5648a7.svg",
+  "assets/images/BG_Title.svg": "/assets/images/BG_Title.dcb04ff4.svg",
+  "assets/images/Bg_Concept.svg": "/assets/images/Bg_Concept.b6020b00.svg",
+  "assets/images/Bg_Top.svg": "/assets/images/Bg_Top.21f512c5.svg"
 }
