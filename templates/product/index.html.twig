@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProductController!{% endblock %}
+
+{% block body %}
+
+    {% for product in products %}
+
+    <h1>{{ product.title }}</h1>
+    <div style="display:flex; align-items: center; gap:10px;">
+    <h3>{{ product.price }}€</h3>
+    <a href="#">ajouter au panier</a>
+    </div>  
+    <p> {{product.content}}
+    </p>
+
+    {% endfor %}
+
+{% endblock %}
