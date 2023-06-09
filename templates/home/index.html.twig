@@ -3,18 +3,58 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Applications/MAMP/htdocs/BoutiqueAled/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Applications/MAMP/htdocs/BoutiqueAled/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
+<section id="Top_Home"> 
+        <div>
+            <h1 class="title">RHEIA</h1> 
+            <h2 id="baseline">Donnons vie à notre avenir</h2> 
+            
+            <button class="bouton-vide">Découvrir <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+    </section>
+    <section id="Title">
+        <div>
+            <img src="https://placehold.co/300x350" alt="placeholder">
+        </div>
+        <div id="description"> 
+            <h2>Le projet</h2> 
+            <p>Rejoignez Rheïa pour une planète plus verte ! Sensibiliser les enfants à l'écologie en s'amusant, c'est notre mission. Avec nos concours de tri de déchets dans les écoles, les enfants deviennent de véritables héros écolos. <br>Nous vous proposons également une sélection de goodies éco-conçus dans la boutique !</p>
+        </div>
+    </section>
+    <section id="concept">
+        <h2>Concept en bref</h2>
+        <div class="container">
+            <div class="child">
+                <div id="Number">1</div>
+                <div>
+                    <h3>Tri et collecte</h3>
+                    <p>Les enfants ramènent les déchets plastiques et les canettes de chez eux à l'école. Le but est, à la collecte, d’être l’école qui a rassemblé le plus de déchets possibles. </p>
+                </div>
+            </div> 
+        </div>
+        <div class="container droite"> 
+            <div class="child">
+                <div id="Number">2</div>
+                <div>
+                    <h3>Éducation ludique</h3>
+                    <p>Les écoles participantes ont accès à un espace membre en ligne rempli de jeux éducatifs sur l'écologie. Les élèves apprennent de manière ludique les bonnes pratiques environnementales.</p>
+                </div>
+            </div> 
+        </div>
+        <div class="container">
+            <div class="child">
+                <div id="Number">3</div>
+                <div>
+                    <h3>Récompenses</h3>
+                    <p>Toutes les écoles sont récompensées par du merchandising écoresponsable et des goodies ludiques. Cela encourage les enfants à poursuivre leurs efforts pour protéger notre planète !</p>
+                </div>
+            </div> 
+        </div>
+    </section>
+    <section id="last">
+        <div>
+            <h2>La boutique</h2>
+            <p> Découvrez notre collection soigneusement sélectionnée de merchandising éthique mettant en valeur notre mascotte adorée et les valeurs de protection de l'environnement. Des t-shirts doux et confortables aux sacs réutilisables pratiques, chaque article est conçu avec soin pour réduire notre impact sur la planète.</p>
+            <A href="/boutique"><button class="bouton-vide">Se rendre sur la boutique <i class="fa-solid fa-arrow-right"></i></button></a>
+        </div>
+    </section>
 {% endblock %}

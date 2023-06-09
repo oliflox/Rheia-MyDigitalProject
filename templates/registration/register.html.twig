@@ -1,20 +1,34 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Register{% endblock %}
-
+{% block stylesheets %}
+<style>
+    footer{
+        display:none !important;
+    }
+</style>
+{% endblock %}
 {% block body %}
-    <h1>Register</h1>
+    <section id="inscription">
+
+        <div>
 
     {{ form_errors(registrationForm) }}
 
     {{ form_start(registrationForm) }}
+    <h3>Créez votre compte</h3>
+    <div class="form-group">
         {{ form_row(registrationForm.username) }}
+    </div>
+    <div class="form-group">
         {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Mot de passe'
-        }) }}
+        </div>
+    <div class="form-group">
+        {{ form_row(registrationForm.plainPassword) }}
+        </div>
+        <div class="form-group">
         {{ form_row(registrationForm.agreeTerms) }}
-
-        <button type="submit" class="btn">S'inscrire</button>
+</div>
+        <input type="submit" value="S'inscrire">
     {{ form_end(registrationForm) }}
 {% endblock %}
