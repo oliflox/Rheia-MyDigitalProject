@@ -1,19 +1,48 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProductController!{% endblock %}
+{% block title %}Boutique - Rheia{% endblock %}
+
+{% block stylesheets %}
+<style>
+    footer{
+        width:100% !important;
+    }
+</style>
+{% endblock %}
 
 {% block body %}
-
+<div class="Top">
+        <h2>Boutique</h2>
+    </div>
+    
+    <section class="produit">
     {% for product in products %}
 
-    <h1>{{ product.title }}</h1>
+    {# <h1>{{ product.title }}</h1>
     <div style="display:flex; align-items: center; gap:10px;">
     <h3>{{ product.price }}€</h3>
     <a href="#">ajouter au panier</a>
     </div>  
     <p> {{product.content}}
-    </p>
+    </p> #}
+
+    
+    <div class="row">
+        <div>
+            <img src="https://via.placeholder.com/200">
+            <div class="boutonLike">
+                <i class="fa-solid fa-cart-shopping panier"></i>
+                <i class="fa-regular fa-heart coeur"> </i>
+            </div>
+        </div>
+        <div>
+            <p class="name">{{ product.title }}</p>
+            <p class="prix">{{ product.price }}€</p>
+            <span class="more">Voir l'article <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+    </div>
+    
 
     {% endfor %}
-
+</section>
 {% endblock %}
