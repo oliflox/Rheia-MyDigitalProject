@@ -11,15 +11,15 @@
     margin: 0;
     padding: 0;
   }
+
+  .dedicace{
+    display: none;
+  }
   
   body {
     background-color: #FFF8E5;
   }
   
-  .title {
-    -webkit-text-stroke: 1px black;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.253);
-  }
   
   h1 {
     font-family: "Astro Earth";
@@ -255,6 +255,7 @@
   
   /*---------------------------------------------------------------------------------------------------------------------------------*/
   #Top_Home {
+    background-image: url(../img/Bg_Top_Home.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -312,14 +313,13 @@ text-align: center;
   
   #concept {
     background-color: #FFD875;
-    background-image: url(../img/Bg_Concept.svg);
-    background-position: -200px;
+    background-image: url(../img/Monster_Concept.svg),url(../img/Bg_Concept.svg);
     background-repeat: no-repeat;
     background-size: contain;
     display: flex;
     text-align: center;
     flex-direction: column;
-    padding: 150px 12%;
+    padding: 150px 5% 150px 25%;
   }
   #concept .container {
     background-color: #FFF8E5;

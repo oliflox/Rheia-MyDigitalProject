@@ -4,14 +4,14 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <script src="https://kit.fontawesome.com/fc4d6d5887.js" crossorigin="anonymous"></script>
-        <link rel="icon" type="image/x-icon" href="../assets/img/">
+        <link rel="icon" type="image/x-icon" href={{ asset('assets/images/Logo_rheia.svg') }}>
         {% block stylesheets %}
             {{encore_entry_link_tags('app')}}
         {% endblock %}
     </head>
     <header>
 		<div>
-			<a href="/"><img src="../assets/img/Logo_rheia.svg" alt="logo Rheïa"> </a>
+			<a href="/"><img src={{ asset('assets/images/Logo_rheia.svg') }} alt="logo Rheïa"> </a>
 			<nav>
 				<ul>
 					<a href="/boutique">
@@ -34,34 +34,6 @@
 			<A href="/inscription"><button class="bouton-plein">Inscription</button></a>
 		</div>
 	</header>
-	<div id="popupContainer1" class="popupContainer">
-		<div class="popupContent">
-			<button id="closeBtn1" class="closeBtn">Fermer</button>
-			<h3>Connectez-vous à votre compte</h3>
-			<form action="Index.php">
-				<input type="text" placeholder="Adresse mail">
-				<br>
-				<input type="text" placeholder="Mot de passe">
-				<br>
-				<input class="send" type="submit" value="Se connecter"> </form>
-		</div>
-	</div>
-	<div id="popupContainer2" class="popupContainer">
-		<div class="popupContent">
-			<button id="closeBtn2" class="closeBtn">Fermer</button>
-			<h3>Créez votre compte</h3>
-			<form action="Index.php">
-				<input type="text" placeholder="Nom">
-				<input type="text" placeholder="Prénom">
-				<br>
-				<input type="text" placeholder="Adresse mail">
-				<br>
-				<input type="text" placeholder="Mot de passe">
-				<br>
-				<input class="send" type="submit" value="Se connecter"> </form>
-			<button>Je n'ai pas encore de compte</button>
-		</div>
-	</div>
 	{% block javascripts %}{{encore_entry_link_tags('app')}}
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
@@ -90,7 +62,7 @@
         {% block body %}{% endblock %}
         
 <footer>
-        <img src="assets/img/Logo_rheia_blanc.svg" alt="logo rheia">
+        <img src={{ asset('assets/images/Logo_rheia_blanc.svg') }} alt="logo rheia">
         <div>
           <a href="#"><i class="fa-brands fa-instagram"></i></a>
           <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
@@ -98,53 +70,13 @@
           <a href="#"><i class="fa-brands fa-tiktok"></i></a>
         </div>
         <ul>
-            <li><a href="#">FAQ</li>
-            <li><a href="#">Participer</li>
-            <li><a href="/contact">Nous contacter</li>
-            <li><a href="#">Mentions légales</li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Participer</a></li>
+            <li><a href="/contact">Nous contacter</a></li>
+            <li><a href="#">Mentions légales</a></li>
         </ul>
+        <div class="dedicace">Flavie la star</div>
     </footer> 
-    <script>
-       // Récupérer les éléments du DOM
-const popupBtn1 = document.getElementById('popupBtn1');
-const popupContainer1 = document.getElementById('popupContainer1');
-const closeBtn1 = document.getElementById('closeBtn1');
-
-const popupBtn2 = document.getElementById('popupBtn2');
-const popupContainer2 = document.getElementById('popupContainer2');
-const closeBtn2 = document.getElementById('closeBtn2');
-
-// Afficher le pop-up 1 au clic sur le bouton 1
-popupBtn1.addEventListener('click', function() {
-  popupContainer1.style.display = 'block';
-});
-
-// Fermer le pop-up 1 au clic sur le bouton de fermeture 1
-closeBtn1.addEventListener('click', function() {
-  popupContainer1.style.display = 'none';
-});
-
-// Afficher le pop-up 2 au clic sur le bouton 2
-popupBtn2.addEventListener('click', function() {
-  popupContainer2.style.display = 'block';
-});
-
-// Fermer le pop-up 2 au clic sur le bouton de fermeture 2
-closeBtn2.addEventListener('click', function() {
-  popupContainer2.style.display = 'none';
-});
-
-// Fermer le pop-up 1 ou 2 au clic en dehors de la boîte de dialogue
-window.addEventListener('click', function(event) {
-  if (event.target === popupContainer1) {
-    popupContainer1.style.display = 'none';
-  }
-
-  if (event.target === popupContainer2) {
-    popupContainer2.style.display = 'none';
-  }
-});
-
-    </script>
+  
 </body>
 </html>
