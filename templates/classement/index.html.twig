@@ -1,20 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ClassementController!{% endblock %}
+{% block title %}Classement - Rheïa{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Applications/MAMP/htdocs/BoutiqueAled/src/Controller/ClassementController.php'|file_link(0) }}">src/Controller/ClassementController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Applications/MAMP/htdocs/BoutiqueAled/templates/classement/index.html.twig'|file_link(0) }}">templates/classement/index.html.twig</a></code></li>
-    </ul>
+<div class="Top">
+    <h2>Classement</h2>
 </div>
+
+<section id="classement">
+    {# <form id="searchForm">
+        <input type="text" placeholder="Rechercher une école" id="searchInput" name="search" value="{{ searchTerm }}">
+        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form> #}
+
+    <table>
+        <tr>
+            <th></th>
+            <th><a href="#" class="sortable" data-column="nom" data-direction="{{ orderDirection == 'asc' and orderBy == 'nom' ? 'desc' : 'asc' }}">Nom <i class="fa-solid fa-chevron-down"></i></a></th>
+            <th><a href="#" class="sortable" data-column="poids_total_recycle" data-direction="{{ orderDirection == 'asc' and orderBy == 'poids_total_recycle' ? 'desc' : 'asc' }}">Poids <i class="fa-solid fa-chevron-down"></i></a></th>
+        </tr>
+
+        {% if result|length > 0 %}
+            {% set counter = 1 %}
+            {% for row in result %}
+                <tr>
+                    <td id="count">{{ counter }}</td>
+                    <td id="name">{{ row.nom }}<br><span id="adresse">{{ row.adresse }}</span></td>
+                    <td id="poids">{{ row.poids_total_recycle }} Kg</td>
+                </tr>
+                {% set counter = counter + 1 %}
+            {% endfor %}
+        {% else %}
+            <tr><td colspan="3">Aucune école trouvée.</td></tr>
+        {% endif %}
+    </table>
+</section>
+
+
+
 {% endblock %}
