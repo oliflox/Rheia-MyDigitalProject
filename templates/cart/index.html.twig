@@ -3,14 +3,25 @@
 {% block title %}Mon panier - Rheia{% endblock %}
 
 {% block body %}
-       {% if cart|length > 0 %}
-    {% for item in cart %}
-        <img src="/upload/attachments/{{ item.product.attachment }}">
+        {% if cart|length > 0 %}
+
+        {% set total = null %}
+        {% for item in cart %}
+        {% set total = total + (item.product.price * item.quantity) %}
+    
+        <img src="{{vich_uploader_asset(item.product, 'attachmentFile')}}">
         <h3>{{ item.product.title }}</h3>
-        <h4>{{ item.product.price }}€</h4>
+        <h4>{{(item.product.price * item.quantity /100 )|number_format(2,',','.') }} €</h4>
+        <p>Prix unitaire ({{(item.product.price /100 )|number_format(2,',','.')}}€) </p>
         <p>{{ item.product.subtitle }}</p>
+        <p><a href="{{ path('cart_minus',{id : item.product.id}) }}"><i class="fa-solid fa-minus"></i></a> {{ item.quantity }} <a href="{{ path('cart_plus',{id : item.product.id}) }}"><i class="fa-solid fa-plus"></i></a></p>
         <a href="{{path('cart_remove', {id: item.product.id}) }}"><i class="fa-solid fa-trash"></i></a><br>
+        
     {% endfor %}
+
+    <p>Nombre de produit : {{cart|length}}</p>
+    <h4>Total : {{(total /100 )|number_format(2,',','.') }} €</h4>
+
 {% else %}
     <h3>Votre panier est vide</h3>
 {% endif %}

@@ -17,7 +17,6 @@
     
     <section class="produit">
     {% for product in products %}
-    
     <div class="row">
         <div>
             <img src="/upload/attachments/{{ product.attachment }}">
@@ -29,7 +28,7 @@
         <div>
             <p class="name">{{ product.title }}</p>
             <p class="sub">{{ product.subtitle }}</p>
-            <p class="prix">{{ product.price }}€</p>
+            <p class="prix">{{(product.price /100 )|number_format(2,',','.') }} €</p>
             <span class="more">Voir l'article <i class="fa-solid fa-arrow-right"></i></span>
         </div>
     </div>

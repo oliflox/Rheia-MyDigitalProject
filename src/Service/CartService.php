@@ -31,6 +31,28 @@ class CartService{
         $this->getSession()->set('cart', $cart);
     }
 
+    public function plusToCart(int $id):void{
+
+        $cart = $this->requestStack->getSession()->get('cart', []);
+        if(!empty($cart[$id])){
+            $cart[$id]++;
+        }else{
+            $cart[$id] = 1;
+        }
+
+        $this->getSession()->set('cart', $cart);
+    }
+
+    public function minusToCart(int $id):void{
+        $cart = $this->requestStack->getSession()->get('cart', []);
+        if($cart[$id] > 1){
+            $cart[$id]--;
+        }else{
+            unset($cart[$id]);
+        }
+        $this->getSession()->set('cart', $cart);
+    }
+
     public function removeToCart(int $id):void{
         $cart = $this->requestStack->getSession()->get('cart', []);
         unset($cart[$id]);

@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use App\Service\CartService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -38,6 +39,22 @@ class CartController extends AbstractController
     public function removeToCart(CartService $cartService, int $id): Response
     {
         $cartService->removeToCart($id);
+
+        return $this->redirectToRoute('cart_index');
+    }
+
+    #[Route('/mon-panier/plus/{id<\d+>}', name: 'cart_plus')]
+    public function plusToCart(CartService $cartService, int $id): RedirectResponse
+    {
+        $cartService->plusToCart($id);
+
+        return $this->redirectToRoute('cart_index');
+    }
+
+    #[Route('/mon-panier/minus/{id<\d+>}', name: 'cart_minus')]
+    public function minusToCart(CartService $cartService, int $id): RedirectResponse
+    {
+        $cartService->minusToCart($id);
 
         return $this->redirectToRoute('cart_index');
     }
