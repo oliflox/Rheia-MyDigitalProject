@@ -22,6 +22,8 @@
     <p>Nombre de produit : {{cart|length}}</p>
     <h4>Total : {{(total /100 )|number_format(2,',','.') }} €</h4>
 
+    <a href="{{path('order_index')}}"><button>Valider mon panier</button></a>
+
 {% else %}
     <h3>Votre panier est vide</h3>
 {% endif %}

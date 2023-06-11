@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello OrderController!{% endblock %}
+
+{% block body %}
+
+{{ form_start(form) }}
+<h1>creation de commande</h1>
+<p>Si vous n'avez pas ajouter d'adress à votre espace compte <a href="#">Ajouter une adresse</a></p>
+<h3>Choisissez une adresse</h3>
+{{ form_row (form.adresses)|replace({"[-br]" : "<br>"})|raw }}
+
+<h3>Choisissez un moyen de livraison</h3>
+{{ form_row (form.transporter)|replace({"[-br]" : "<br>"})|raw }}
+
+<h3>Récapitulatif de votre commande</h3>
+({{recapCart|length}} produits)<br>
+
+{% set total = null %}
+
+{% for product in recapCart %}
+    {% set total = total + (product.product.price * product.quantity ) %}
+    <br><br>
+    <img src="{{vich_uploader_asset(product.product,'attachmentFile') }}" alt="{{product.product.title}}"><br>
+
+    {{product.product.title}}
+    {{product.product.subtitle}}
+    
+    <p>Prix unitaire: {{(product.product.price / 100) |number_format(2,',','.') }}€</p>
+    <p>Quantité : {{product.quantity}}</p>
+    <p>Prix : {{(product.product.price * product.quantity /100 )|number_format(2,',','.') }} €</p>
+{% endfor %}
+<br><br>
+<p>Total de la commande : {{(total/100 )|number_format(2,',','.') }} €</p>
+{{ form_end (form)}}
+
+
+{% endblock %}

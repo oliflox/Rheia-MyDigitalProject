@@ -9,7 +9,10 @@
             {{encore_entry_link_tags('app')}}
         {% endblock %}
     </head>
-    <header>
+    
+
+    {% if not app.user %}
+       <header>
 		<div>
 			<a href="{{path('home')}}"><img src={{ asset('assets/images/Logo_rheia.svg') }} alt="logo Rheïa"> </a>
 			<nav>
@@ -34,6 +37,35 @@
 			<A href="{{path('app_register')}}"><button class="bouton-plein">Inscription</button></a>
 		</div>
 	</header>
+    {% endif %}
+    {% if app.user %}
+         <header>
+		<div>
+			<a href="{{path('home')}}"><img src={{ asset('assets/images/Logo_rheia.svg') }} alt="logo Rheïa"> </a>
+			<nav>
+				<ul>
+					<a href="{{path('shop_index')}}">
+						<li>Boutique</li>
+					</a>
+					<a href="{{path('app_classement')}}">
+						<li>Classement</li>
+					</a>
+					<a href="{{path('app_about')}}">
+						<li>A propos</li>
+					</a>
+					<a href="{{path('app_contact')}}">
+						<li>Contact</li>
+					</a>
+				</ul>
+			</nav>
+		</div>
+		<div>
+            <A href="{{path('cart_index')}}"><i class="fa-solid fa-cart-shopping"></i></a>
+			<A href="{{path('app_logout')}}"><i class="fa-solid fa-right-from-bracket"></i></a>
+		</div>
+	</header>
+    {% endif %}
+ 
 	{% block javascripts %}{{encore_entry_link_tags('app')}}
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
