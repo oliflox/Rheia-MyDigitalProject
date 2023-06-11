@@ -561,9 +561,13 @@ text-align: center;
   }
   .produit div div:nth-child(2) {
     max-width: 250px;
+    max-height: 250px;
+    object-fit: contain;
   }
   .produit div div img {
-    width: 250px;
+    max-width: 250px;
+    max-height: 250px;
+    object-fit: contain;
   }
   .produit div div div {
     display: flex;

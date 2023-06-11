@@ -5,8 +5,12 @@ namespace App\Entity;
 use App\Repository\ProductRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\component\HttpFoundation\File\File;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
+#[Vich\Uploadable]
+
 class Product
 {
     #[ORM\Id]
@@ -38,8 +42,11 @@ class Product
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updated_at = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type:'string',length: 255)]
     private ?string $attachment = null;
+
+    #[Vich\UploadableField(mapping:'products', fileNameProperty:'attachment')]
+    private ?File $attachmentFile = null;
 
     #[ORM\ManyToOne(inversedBy: 'products')]
     #[ORM\JoinColumn(nullable: false)]
@@ -151,11 +158,25 @@ class Product
         return $this->attachment;
     }
 
-    public function setAttachment(string $attachment): static
+    public function setAttachment(string $attachment): self 
     {
         $this->attachment = $attachment;
 
         return $this;
+    }
+
+    public function getAttachmentFile(): ?File
+    {
+        return $this->attachmentFile;
+    }
+
+    public function setAttachmentFile(?File $attachmentFile = null): void
+    {
+        $this->attachmentFile = $attachmentFile;
+
+        if(null !== $attachmentFile){
+            $this->updated_at = new \DateTimeImmutable();
+        }
     }
 
     public function getCategory(): ?CategoryShop

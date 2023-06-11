@@ -29,7 +29,7 @@
     
     <div class="row">
         <div>
-            <img src="https://via.placeholder.com/200">
+            <img style="width:;" src="/upload/attachments/{{ product.attachment }}">
             <div class="boutonLike">
                 <i class="fa-solid fa-cart-shopping panier"></i>
                 <i class="fa-regular fa-heart coeur"> </i>
@@ -37,6 +37,7 @@
         </div>
         <div>
             <p class="name">{{ product.title }}</p>
+            <p class="sub">{{ product.subtitle }}</p>
             <p class="prix">{{ product.price }}€</p>
             <span class="more">Voir l'article <i class="fa-solid fa-arrow-right"></i></span>
         </div>
