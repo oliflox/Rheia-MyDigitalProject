@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon panier - Rheia{% endblock %}
+
+{% block body %}
+       {% if cart|length > 0 %}
+    {% for item in cart %}
+        <img src="/upload/attachments/{{ item.product.attachment }}">
+        <h3>{{ item.product.title }}</h3>
+        <h4>{{ item.product.price }}€</h4>
+        <p>{{ item.product.subtitle }}</p>
+        <a href="{{path('cart_remove', {id: item.product.id}) }}"><i class="fa-solid fa-trash"></i></a><br>
+    {% endfor %}
+{% else %}
+    <h3>Votre panier est vide</h3>
+{% endif %}
+    <h4>Vous souhaitez ajouter un produit à votre  panier ?</h4>
+    <a href="{{path('shop_index')}}"><button>Retourner à la boutique</button></a>
+    <a href="{{path('cart_removeAll')}}"><i class="fa-solid fa-trash"></i></a>
+
+{% endblock %}

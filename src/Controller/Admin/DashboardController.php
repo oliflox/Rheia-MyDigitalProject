@@ -38,7 +38,7 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('BoutiqueAled');
+            ->setTitle('Boutique - Rheia');
     }
 
     public function configureMenuItems(): iterable

@@ -11,27 +11,27 @@
     </head>
     <header>
 		<div>
-			<a href="/"><img src={{ asset('assets/images/Logo_rheia.svg') }} alt="logo Rheïa"> </a>
+			<a href="{{path('home')}}"><img src={{ asset('assets/images/Logo_rheia.svg') }} alt="logo Rheïa"> </a>
 			<nav>
 				<ul>
-					<a href="/boutique">
+					<a href="{{path('shop_index')}}">
 						<li>Boutique</li>
 					</a>
-					<a href="/classement">
+					<a href="{{path('app_classement')}}">
 						<li>Classement</li>
 					</a>
-					<a href="/about">
+					<a href="{{path('app_about')}}">
 						<li>A propos</li>
 					</a>
-					<a href="/contact">
+					<a href="{{path('app_contact')}}">
 						<li>Contact</li>
 					</a>
 				</ul>
 			</nav>
 		</div>
 		<div>
-			<A href="/connexion"><button class="bouton-vide">Connexion</button></a>
-			<A href="/inscription"><button class="bouton-plein">Inscription</button></a>
+			<A href="{{path('app_login')}}"><button class="bouton-vide">Connexion</button></a>
+			<A href="{{path('app_register')}}"><button class="bouton-plein">Inscription</button></a>
 		</div>
 	</header>
 	{% block javascripts %}{{encore_entry_link_tags('app')}}
@@ -72,7 +72,7 @@
         <ul>
             <li><a href="#">FAQ</a></li>
             <li><a href="#">Participer</a></li>
-            <li><a href="/contact">Nous contacter</a></li>
+            <li><a href="{{path('app_contact')}}">Nous contacter</a></li>
             <li><a href="#">Mentions légales</a></li>
         </ul>
         <div class="dedicace">Flavie la star</div>
