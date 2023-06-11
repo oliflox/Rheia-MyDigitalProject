@@ -4,31 +4,52 @@
 
 {% block body %}
         {% if cart|length > 0 %}
-
+<div class="Top">
+        <h2>Mon panier</h2>
+    </div>
         {% set total = null %}
-        {% for item in cart %}
-        {% set total = total + (item.product.price * item.quantity) %}
-    
-        <img src="{{vich_uploader_asset(item.product, 'attachmentFile')}}">
-        <h3>{{ item.product.title }}</h3>
-        <h4>{{(item.product.price * item.quantity /100 )|number_format(2,',','.') }} €</h4>
-        <p>Prix unitaire ({{(item.product.price /100 )|number_format(2,',','.')}}€) </p>
-        <p>{{ item.product.subtitle }}</p>
-        <p><a href="{{ path('cart_minus',{id : item.product.id}) }}"><i class="fa-solid fa-minus"></i></a> {{ item.quantity }} <a href="{{ path('cart_plus',{id : item.product.id}) }}"><i class="fa-solid fa-plus"></i></a></p>
-        <a href="{{path('cart_remove', {id: item.product.id}) }}"><i class="fa-solid fa-trash"></i></a><br>
-        
-    {% endfor %}
+        <section id="summary">
+            <div id="product">
+                {% for item in cart %}
+                {% set total = total + (item.product.price * item.quantity) %}
+                <div class="cart">
+                    <div>
+                        <div>
+                            <img src="{{vich_uploader_asset(item.product, 'attachmentFile')}}">
+                        </div>
+                        <div>
+                            <h3>{{ item.product.title }}</h3>
+                            <p>{{ item.product.subtitle }}</p>
+                            <p>Quantité : <a href="{{ path('cart_minus',{id : item.product.id}) }}"><i class="fa-solid fa-minus"></i></a> {{ item.quantity }} <a href="{{ path('cart_plus',{id : item.product.id}) }}"><i class="fa-solid fa-plus"></i></a></p>
+                            <p>{{(item.product.price * item.quantity /100 )|number_format(2,',','.') }} €</p>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="{{path('cart_remove', {id: item.product.id}) }}"><i class="fa-solid fa-trash" style="margin-top:5px; font-size:20px; color:#FFD875;"></i></a>
+                    </div>
+                </div>
+                <hr>
+                {% endfor %}
+            </div>
+            <div id="total-cart">
+                <div>
+                    <p>Livraison : </p>
+                    <p style="color:#CC2D45;">A définir</p>
+                </div>
+                <hr>
+                <div>
+                    <p style="font-weight:bold;">Total : </p><p style="color:#CC2D45; font-weight:bold; font-size:25px; ">{{(total /100 )|number_format(2,',','.') }} €</p>
+                </div>
+                <a href="{{path('order_index')}}"><button>Valider mon panier</button></a>
+            </div>
+        </section>
+        <section id="bottom-bandeau">
+            {% else %}
+                <h3>Votre panier est vide</h3>
+            {% endif %}
+                <h4>Vous souhaitez ajouter un produit à votre  panier ?</h4>
+                <a href="{{path('shop_index')}}"><button>Retourner à la boutique</button></a>
+        </section>
 
-    <p>Nombre de produit : {{cart|length}}</p>
-    <h4>Total : {{(total /100 )|number_format(2,',','.') }} €</h4>
-
-    <a href="{{path('order_index')}}"><button>Valider mon panier</button></a>
-
-{% else %}
-    <h3>Votre panier est vide</h3>
-{% endif %}
-    <h4>Vous souhaitez ajouter un produit à votre  panier ?</h4>
-    <a href="{{path('shop_index')}}"><button>Retourner à la boutique</button></a>
-    <a href="{{path('cart_removeAll')}}"><i class="fa-solid fa-trash"></i></a>
 
 {% endblock %}

@@ -709,5 +709,95 @@ text-align: center;
 #inscription div form input[type=submit]{
     margin-top: 30px;
 }
+
+.cart {
+  display: flex;
+  width: 45vw;
+  justify-content: space-around;
+  padding: 25px;
+}
+
+.cart > div{
+  display: flex;
+  gap: 50px;
+}
+
+.cart > div > div{
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.cart>div>div>img{
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+} 
+
+.cart h3{
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.cart p{
+  font-size: 16px;
+}
+
+.cart a{
+  color: black;
+}
+
+section#summary {
+  display: flex;
+  justify-content: space-evenly;
+}
+hr{
+  border: 1px solid black;
+}
+
+#bottom-bandeau{
+  text-align: center;
+  margin: 50px 0;
+}
+
+#bottom-bandeau button, #total-cart button{
+    background-color: #CC2D45;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: white;
+    border: none;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+#bottom-bandeau button:hover, #total-cart button:hover{
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+div#total-cart {
+  padding: 30px;
+  height: fit-content;
+  border: 2px solid #CC2D45;
+  border-radius: 20px;
+  width: 15vw;
+  text-align: center;
+  position: sticky;
+    top: 125px;
+}
+
+#total-cart>div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#total-cart>div>p {
+  font-size: 22px;
+  margin: 10px 0;
+}
+
   /*# sourceMappingURL=global.css.map */
   
