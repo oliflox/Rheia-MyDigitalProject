@@ -7,6 +7,11 @@
     font-family: "Red Hat Display";
     src: url("../font/Red_Hat_Display/RedHatDisplay-VariableFont_wght.ttf");
   }
+
+  a{
+    text-decoration: none;
+  }
+
   * {
     margin: 0;
     padding: 0;
@@ -48,6 +53,18 @@
     font-size: 18px;
   }
   
+  .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15vh 8vw 15vh;
+  }
+
+  .content h2{
+    font-weight: 600;
+    font-size: 50px;
+  }
+
   header {
     position: fixed;
     width: 100%;
@@ -762,7 +779,8 @@ text-align: center;
   color: black;
 }
 
-section#summary {
+#summary {
+  margin: 100px 0;
   display: flex;
   justify-content: space-evenly;
 }
@@ -770,12 +788,34 @@ hr{
   border: 1px solid black;
 }
 
-#bottom-bandeau{
-  text-align: center;
-  margin: 50px 0;
+section.boutique {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  height: 75vh;
+  justify-content: center;
 }
 
-#bottom-bandeau button, #total-cart button{
+.boutique p{
+  text-align: center;
+}
+
+.boutique a{
+  margin-top: 20px;
+}
+
+#total{
+  font-weight:bold; font-size:25px; margin-top:15px;
+}
+
+#total-price{
+  font-weight:bold;
+  color: #CC2D45;
+  display: flex;justify-content: flex-end;
+}
+
+#total-cart button{
     background-color: #CC2D45;
     font-weight: bold;
     font-size: 16px;
@@ -787,7 +827,7 @@ hr{
     cursor: pointer;
 }
 
-#bottom-bandeau button:hover, #total-cart button:hover{
+#total-cart button:hover{
   transform: scale(1.05);
   transition: 0.3s;
 }
@@ -798,7 +838,7 @@ div#total-cart {
   border: 2px solid #CC2D45;
   border-radius: 20px;
   width: 15vw;
-  text-align: center;
+  text-align: right;
   position: sticky;
     top: 125px;
 }
@@ -813,16 +853,16 @@ div#total-cart {
   margin: 10px 0;
 }
 
-section#Commande {
-  padding: 100px 100px;
+#Commande {
+  padding: 100px;
 }
 
-section#Commande form{
+#Commande form{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
-section#Commande h3 {
+#Commande h3 {
   font-size: 30px;
   margin-top: 15px;
 }
@@ -884,7 +924,7 @@ div#order_adresses{
 }
 
 #scroll{
-  height: 175px;
+  height: 150px;
   overflow-y: scroll;
 }
 
@@ -903,5 +943,41 @@ div#order_adresses{
   
   background: #c90b27; 
 } 
+
+#recap {
+  display: flex;
+  margin-top: 50px;
+  justify-content: space-between;
+}
+
+#info {
+  display: flex;
+  gap: 25px;
+  width: 60vw;
+  flex-wrap: wrap;
+}
+
+#detail{
+  display:flex;
+  align-content: center;
+  justify-content: space-between; 
+  margin-top:15px;
+}
+
+.card {
+  background-color: #cc2d453f;
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 20vw;
+  max-width: 25vw;
+}
+
+.card > h4{
+  font-size: 26px;
+  font-weight: 500;
+}
   /*# sourceMappingURL=global.css.map */
   

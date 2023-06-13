@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Confirmation de commande - Rheia
+{% endblock %}
+
+{% block body %}
+
+<section class="boutique">
+ <h2>Confirmation de commande</h2>
+ <h3>Merci pour votre commande !</h3>
+ <p>Votre commande a bien été effectuée, nous allons la traiter dans les prochains jours.<br>Vous recevrez votre confirmation et le suivis de votre achat par mail à cette adresse : {{order.user.email}} .</p>
+<a href="{{ path('shop_index') }}"><button class="bouton-plein">Retourner à la boutique</button></a>
+</section>  
+
+{% endblock %}

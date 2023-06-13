@@ -4,11 +4,10 @@
 
 {% block body %}
         {% if cart|length > 0 %}
-<div class="Top">
-        <h2>Mon panier</h2>
-    </div>
+    <section class="content">
+        <H2>Mon panier</H2>
         {% set total = null %}
-        <section id="summary">
+        <div id="summary">
             <div id="product">
                 {% for item in cart %}
                 {% set total = total + (item.product.price * item.quantity) %}
@@ -42,14 +41,17 @@
                 </div>
                 <a href="{{path('order_prepare')}}"><button>Valider mon panier</button></a>
             </div>
+        </div>
         </section>
-        <section id="bottom-bandeau">
-            {% else %}
+        {% else %}
+        
+        <section class="boutique">
+            
                 <h3>Votre panier est vide</h3>
-            {% endif %}
+            
                 <h4>Vous souhaitez ajouter un produit à votre  panier ?</h4>
-                <a href="{{path('shop_index')}}"><button>Retourner à la boutique</button></a>
+                <a href="{{path('shop_index')}}"><button class="bouton-plein">Retourner à la boutique</button></a>
         </section>
-
+{% endif %}
 
 {% endblock %}

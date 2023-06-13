@@ -1,41 +1,69 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Récapitulatif commande - Rheia{% endblock %}
+{% block title %}Récapitulatif commande - Rheia
+{% endblock %}
 
 {% block body %}
+	<section class="content">
+		<h2>Récapitulatif de votre commande</h2>
+		<div id="recap">
+			<div id="info">
+				<div class="card">
+					<h4>Informations personnelles</h4>
+					{% set deliveryLines = delivery|split('<br>') %}
+					<p>{{ deliveryLines[0] | raw }}</p>
+					<p>{{ deliveryLines[1] | raw }}</p>
+				</div>
+				<div class="card">
+					<h4>Détails de l'expédition</h4>
+					<p>{{ transporter.title }}</p>
+					<p>{{ transporter.content }}</p>
+					<p>Prix : {{( transporter.price /100 ) |number_format(2,',','.') }}
+						€</p>
+				</div>
+				<div class="card">
+					<h4>Adresse de livraison</h4>
+					<p>{{ deliveryLines[2] | raw }}</p>
+					<p>{{ deliveryLines[3] | raw }}, {{ deliveryLines[4] | raw }}</p>
+				</div>
+			</div>
+			<div id="total-cart" style="width:20vw;">
+				<h4>Articles</h4>
+				<div id="scroll">
+					{% set total = null %}
+					{% for product in recapCart %}
+						{% set total = total + (product.product.price * product.quantity ) %}
+						<div id="product">
+							<img src="{{vich_uploader_asset(product.product,'attachmentFile') }}" alt="{{product.product.title}}">
 
-<h1>Récapitulatif de votre commande</h1>
+							{{product.product.title}}
+							<br>Quantité :
+							{{product.quantity}}
+							<br>Prix :
+							{{(product.product.price * product.quantity /100 )|number_format(2,',','.') }}
+							€
 
-<h3>Détails de l'expédition</h3>
-{{ transporter.title }}<br>
-{{ transporter.content }}<br>
-{{( transporter.price /100 ) |number_format(2,',','.') }} €
+						</div>
+						<hr>
 
-<h3>Adresse de livraison</h3>
-{{ delivery | raw }}
+					{% endfor %}
 
-<h3>Récapitulatif de votre commande</h3>
-<div id="total-cart" style="width:20vw;">
-    <h4>Articles</h4>
-    <div id="scroll">
-        {% set total = null %}
-        {% for product in recapCart %}
-            {% set total = total + (product.product.price * product.quantity ) %}
-            <div id="product">
-            <img src="{{vich_uploader_asset(product.product,'attachmentFile') }}" alt="{{product.product.title}}">
+				</div>
+				<div id="detail">
+					<p>Articles : {{(total /100 )|number_format(2,',','.') }} €</p>
+					<p>Frais de port : {{( transporter.price /100 ) |number_format(2,',','.') }} €</p>
+				</div>
+                <hr>
+				<p id="total">Total :
+					<span style="color:#CC2D45;">{{((total + transporter.price) /100 )|number_format(2,',','.') }}
+						€</span>
+				</p>
+				<a id="total-price" href=" {{path('payment_stripe' , {reference:  reference}) }} ">
+					<button>Payer la commande</button>
+				</a>
+			</div>
+		</div>
+	</section>
 
-            {{product.product.title}} <br>Quantité : {{product.quantity}} <br>Prix : {{(product.product.price * product.quantity /100 )|number_format(2,',','.') }} €
-            
-            </div>
-            <hr>
-    
-            {% endfor %}
-            
-        </div>
-<p style="margin-top:15px;">Articles : {{(total /100 )|number_format(2,',','.') }} €</p>
-<p>Frais de port : {{( transporter.price /100 ) |number_format(2,',','.') }} €</p>
-<p style=" font-weight:bold; font-size:25px; margin-top:15px;">Total : <span style="color:#CC2D45;">{{((total + transporter.price) /100 )|number_format(2,',','.') }} €</span></p>
-<a href=" {{path('payment_stripe' , {reference:  reference}) }} "><button>Payer la commande</button></a>
-    </div>
 
 {% endblock %}

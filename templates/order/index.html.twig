@@ -5,49 +5,57 @@
 
 {% block body %}
 
-	<div class="Top">
-		<h2>Commander</h2>
+	<section class="content">
+		<H2>Informations de livraison</H2>
+		<div id="Commande">
+			{{ form_start(form, {action:path('order_verify')}) }}
+			<div>
+				<div>
+					<p>Si vous n'avez pas ajouter d'adress à votre espace compte
+						<a style="color: #8C40FF; text-decoration: none;" href="#">Ajouter une adresse</a>
+					</p>
+				</div>
 
-	</div>
+				<h3>Choisissez une adresse</h3>
+				{{ form_row (form.adresses)|replace({"[-br]" : "<br>"})|raw }}
+				<h3>Choisissez un moyen de livraison</h3>
+				{{ form_row (form.transporter)|replace({"[-br]" : "<br>"})|raw }}
+				<div id="bouton-nav">
+					<a href="#">Retour</a>
+					<button class="bouton-plein">Valider ma commande</button>
+				</div>
+			</div>
+			<div id="total-cart" style="width:20vw;">
+				<h4>Articles</h4>
+				<div id="scroll">
+					{% set total = null %}
+					{% for product in recapCart %}
+						{% set total = total + (product.product.price * product.quantity ) %}
+						<div id="product">
+							<img src="{{vich_uploader_asset(product.product,'attachmentFile') }}" alt="{{product.product.title}}">
 
-<section id="Commande">
-	{{ form_start(form, {action:path('order_verify')}) }}
-    <div>
-        <div>
-            <p>Si vous n'avez pas ajouter d'adress à votre espace compte
-                <a style="color: #8C40FF; text-decoration: none;" href="#">Ajouter une adresse</a>
-            </p>
-        </div>
+							{{product.product.title}}
+							<br>Quantité :
+							{{product.quantity}}
+							<br>Prix :
+							{{(product.product.price * product.quantity /100 )|number_format(2,',','.') }}
+							€
 
-        <h3>Choisissez une adresse</h3>
-        {{ form_row (form.adresses)|replace({"[-br]" : "<br>"})|raw }}
-        <h3>Choisissez un moyen de livraison</h3>
-        {{ form_row (form.transporter)|replace({"[-br]" : "<br>"})|raw }}
-        <div id="bouton-nav">
-            <a href="#">Retour</a> <button class="bouton-plein">Valider ma commande</button>
-        </div>
-    </div>
-    <div id="total-cart" style="width:20vw;">
-    <h4>Articles</h4>
-    <div id="scroll">
-        {% set total = null %}
-        {% for product in recapCart %}
-            {% set total = total + (product.product.price * product.quantity ) %}
-            <div id="product">
-            <img src="{{vich_uploader_asset(product.product,'attachmentFile') }}" alt="{{product.product.title}}">
+						</div>
+						<hr>
 
-            {{product.product.title}} <br>Quantité : {{product.quantity}} <br>Prix : {{(product.product.price * product.quantity /100 )|number_format(2,',','.') }} €
-            
-            </div>
-            <hr>
-    
-            {% endfor %}
-            
-        </div>
-<p style=" font-weight:bold; font-size:25px; margin-top:15px;">Total : <span style="color:#CC2D45;">{{(total /100 )|number_format(2,',','.') }} € </span> </p>
-        {{ form_end (form)}}
-    </div>
-</section>
+					{% endfor %}
+
+				</div>
+				<p id="total">Total :
+					<span style="color:#CC2D45;">{{(total /100 )|number_format(2,',','.') }}
+						€
+					</span>
+				</p>
+				{{ form_end (form)}}
+			</div>
+		</div>
+	</section>
 
 
 {% endblock %}

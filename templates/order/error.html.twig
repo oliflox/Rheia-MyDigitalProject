@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Echec de commande - Rheia
+{% endblock %}
+
+{% block body %}
+
+<section class="boutique">
+ <h3>Echec de votre commande</h3>
+ <h4>Une erreur est survenue lors du paiement de votre commande</h4>
+ <p>Vous pouvez réessayer en cliquant sur le bouton ci-dessous</p>
+ 
+<a href="{{ path('shop_index') }}"><button class="bouton-plein">Retourner à la boutique</button></a>
+</section>  
+
+{% endblock %}

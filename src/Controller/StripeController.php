@@ -84,13 +84,26 @@ class StripeController extends AbstractController
     }
 
     #[Route('/order/success/{reference}', name: 'payment_success')]
-    public function StripeSuccess($reference, CartService $service): Response
+    public function StripeSuccess($reference, CartService $cartservice): Response
     {
-        return $this->render('order/success.html.twig');
+        $order = $this->em->getRepository(Order::class)->findOneByReference(['reference' => $reference]);
+        if (!$order || $order->getUser() != $this->getUser()) {
+            return $this->redirectToRoute('cart_index');
+        }
+
+        if(!$order->isIsPaid()){
+            $cartservice->removeCartAll();
+            $order->setIsPaid(true);
+            $this->em->flush();
+        }
+
+        return $this->render('order/success.html.twig', [
+            'order' => $order
+        ]);
     }
 
     #[Route('/order/error/{reference}', name: 'payment_error')]
-    public function StripeError($reference, CartService $service): Response
+    public function StripeError($reference, CartService $cartservice): Response
     {
         return $this->render('order/error.html.twig');
     }
