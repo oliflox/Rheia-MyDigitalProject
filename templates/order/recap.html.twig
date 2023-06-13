@@ -35,7 +35,7 @@
 <p style="margin-top:15px;">Articles : {{(total /100 )|number_format(2,',','.') }} €</p>
 <p>Frais de port : {{( transporter.price /100 ) |number_format(2,',','.') }} €</p>
 <p style=" font-weight:bold; font-size:25px; margin-top:15px;">Total : <span style="color:#CC2D45;">{{((total + transporter.price) /100 )|number_format(2,',','.') }} €</span></p>
-<button>Payer la commande</button>
+<a href=" {{path('payment_stripe' , {reference:  reference}) }} "><button>Payer la commande</button></a>
     </div>
 
 {% endblock %}
