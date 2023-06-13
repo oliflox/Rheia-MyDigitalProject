@@ -32,15 +32,15 @@
                 {% endfor %}
             </div>
             <div id="total-cart">
-                <div>
+                <div style="display: flex; justify-content: space-between;">
                     <p>Livraison : </p>
                     <p style="color:#CC2D45;">A définir</p>
                 </div>
                 <hr>
-                <div>
-                    <p style="font-weight:bold;">Total : </p><p style="color:#CC2D45; font-weight:bold; font-size:25px; ">{{(total /100 )|number_format(2,',','.') }} €</p>
+                <div style="display: flex; justify-content: space-between;">
+                    <h4 style="font-weight:bold;">Total : </h4><p style="color:#CC2D45; font-weight:bold; font-size:25px; ">{{(total /100 )|number_format(2,',','.') }} €</p>
                 </div>
-                <a href="{{path('order_index')}}"><button>Valider mon panier</button></a>
+                <a href="{{path('order_prepare')}}"><button>Valider mon panier</button></a>
             </div>
         </section>
         <section id="bottom-bandeau">
