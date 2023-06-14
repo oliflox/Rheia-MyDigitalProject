@@ -23,7 +23,6 @@ class DashboardController extends AbstractDashboardController
         //
             $user = $this->getUser();
 
-            // Perform the necessary operations based on the user
             if ('rheia@gmail.com' === $user->getEmail()) {
                 $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
                 return $this->redirect($adminUrlGenerator->setController(CategoryShopCrudController::class)->generateUrl());
