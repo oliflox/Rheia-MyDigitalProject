@@ -4,3 +4,7 @@ twig:
 when@test:
     twig:
         strict_variables: true
+        
+    form_themes:
+        - 'form/contact.html.twig'
+
