@@ -2,14 +2,6 @@
 
 {% block title %}Boutique - Rheia{% endblock %}
 
-{% block stylesheets %}
-<style>
-    footer{
-        width:100% !important;
-    }
-</style>
-{% endblock %}
-
 {% block body %}
 <div class="Top">
         <h2>Boutique</h2>
@@ -19,7 +11,7 @@
     {% for product in products %}
     <div class="row">
         <div>
-            <img src="/upload/attachments/{{ product.attachment }}">
+            <img src="/upload/attachments/{{ product.attachment }}" alt="{{product.title}}">
             <div class="boutonLike">
                 <a href="{{ path('cart_add',{id : product.id}) }}"><i class="fa-solid fa-cart-shopping panier"></i></a>
                 <i class="fa-regular fa-heart coeur"> </i>
@@ -29,7 +21,7 @@
             <p class="name">{{ product.title }}</p>
             <p class="sub">{{ product.subtitle }}</p>
             <p class="prix">{{(product.price /100 )|number_format(2,',','.') }} €</p>
-            <span class="more">Voir l'article <i class="fa-solid fa-arrow-right"></i></span>
+            <a href="{{path('product_index', {"id":product.id, "category":product.category })}}" class="more">Voir l'article <i class="fa-solid fa-arrow-right"></i></a>
         </div>
     </div>
     

@@ -24,4 +24,16 @@ class ProductController extends AbstractController
             'products' => $products
         ]);
     }
+
+    #[Route('/{category}/{id}', name: 'product_index')]
+    public function product(int $id): Response
+    {
+
+        $product = $this->em->getRepository(Product::class)->find($id);
+
+
+        return $this->render('product/product.html.twig',[
+            'product' => $product
+        ]);
+    }
 }

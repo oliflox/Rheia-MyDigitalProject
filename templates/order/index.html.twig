@@ -10,14 +10,17 @@
 		<div id="Commande">
 			{{ form_start(form, {action:path('order_verify')}) }}
 			<div>
-				<div>
-					<p>Si vous n'avez pas ajouter d'adress à votre espace compte
-						<a style="color: #8C40FF; text-decoration: none;" href="#">Ajouter une adresse</a>
-					</p>
-				</div>
 
 				<h3>Choisissez une adresse</h3>
-				{{ form_row (form.adresses)|replace({"[-br]" : "<br>"})|raw }}
+				{% if form.adresses is not empty %}
+					{{ form_row(form.adresses)|replace({'[-br]': '<br>'})|raw }}
+				{% else %}
+					<div>
+						<p>Si vous n'avez pas ajouté d'adresse à votre espace compte
+							<a style="color: #8C40FF; text-decoration: none;" href="#">Ajouter une adresse</a>
+						</p>
+					</div>
+				{% endif %}
 				<h3>Choisissez un moyen de livraison</h3>
 				{{ form_row (form.transporter)|replace({"[-br]" : "<br>"})|raw }}
 				<div id="bouton-nav">

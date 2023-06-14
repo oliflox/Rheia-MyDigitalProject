@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{product.title}} - Rheïa{% endblock %}
+
+{% block body %}
+
+<pre>
+    {{ dump() }}
+</pre>
+
+
+<img src="/upload/attachments/{{ product.attachment }}" alt="{{product.title}}">
+<h2>{{product.title}}</h2> 
+<p>{{product.price}}</p>
+<p>{{product.content|raw }}</p>
+<p>c'est un super produit avec des super ingredients de fou malade</p>
+{% endblock %}
