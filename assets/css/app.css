@@ -1180,6 +1180,28 @@ section#fiche-produit {
   border: 1px solid #8C40FF;
 }
 
+#profile > form{
+  margin-top: 30px;
+}
+
+#edit_profile{
+  display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+}
+
+#edit_profile > div > input{
+  background-color: transparent;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 16px;
+    width: 15vw;
+}
+
+
+
+
 #menu {
   display: flex;
   flex-direction: column;

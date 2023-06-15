@@ -1,9 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Modification du profil de {{app.user.username}} - Rheia{% endblock %}
+{% block title %}Modification de votre profil{% endblock %}
 
 {% block body %}
 
-
-    {{form(form)}}
+<section id="profile">
+    <h2>Modification de votre profil</h2>
+        {{form(form)}}
+</section>
 {% endblock %}
