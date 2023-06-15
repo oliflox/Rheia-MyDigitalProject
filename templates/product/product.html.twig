@@ -14,7 +14,7 @@
 		<div id="droite-produit">
 			<h3>{{product.title}}</h3>
 			<div id="cta-produit">
-				<h4>{{(product.price /100)}} €</h4>
+				<h4>{{(product.price /100)|number_format(2,',','.')}} €</h4>
 				<a href="{{ path('cart_add',{id : product.id}) }}" class="bouton-plein"><i class="fa-solid fa-cart-shopping"></i> Ajouter au panier</a>
 			</div>
 			<p>{{product.content|raw }}</p>
