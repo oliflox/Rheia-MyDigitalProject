@@ -4,8 +4,6 @@ namespace App\Form;
 
 use App\Entity\Adress;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CountryType;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -19,19 +17,19 @@ class AddressType extends AbstractType
             ->add('title', null, [
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'Nom de l\'adresse',
+                    'placeholder' => 'Nom de l\'adresse *',
                 ],
             ])
             ->add('firstname', null, [
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'Prénom',
+                    'placeholder' => 'Prénom *',
                 ],
             ])
             ->add('lastname', null, [
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'Nom',
+                    'placeholder' => 'Nom *',
                 ],
             ])
             ->add('company', null, [
@@ -44,36 +42,39 @@ class AddressType extends AbstractType
             ->add('adress', null, [
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'Adresse',
+                    'placeholder' => 'Adresse *',
                 ],
             ])
             ->add('postalcode', null, [
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'Code postal',
+                    'placeholder' => 'Code postal *',
                 ],
             ])
-            ->add('country', CountryType::class, [
+            ->add('country', null, [
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'Pays',
-                    'style' => 'width: 151px;',
+                    'placeholder' => 'Pays *',
                 ],
-                'preferred_choices' => ['FR'],
             ])
             ->add('phone', null, [
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'Téléphone',
+                    'placeholder' => 'Téléphone *',
                 ],
             ])
             ->add('city', null, [
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'Ville',
+                    'placeholder' => 'Ville *',
                 ],
             ])
-            ->add('Ajouter', SubmitType::class);
+            ->add('Ajouter', SubmitType::class, [
+                'label' => 'Ajouter une nouvelle adresse',
+                'attr' => [
+                    'class' => 'bouton-plein',
+                ],
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

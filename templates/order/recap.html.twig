@@ -11,10 +11,6 @@
 				<div class="card">
 					<h4>Informations personnelles</h4>
 
-					<pre>
-						{{ dump() }}
-					</pre>
-
 					{% set deliveryLines = delivery|split('<br>') %}
 					<p>{{ deliveryLines[0] | raw }}</p>
 					<p>{{ deliveryLines[1] | raw }}</p>

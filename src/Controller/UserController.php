@@ -21,7 +21,7 @@ class UserController extends AbstractController
         return $this->render('user/index.html.twig');
     }
 
-    #[Route('/edit', name: 'user_edit')]
+    #[Route('/EditUserInfo', name: 'user_edit')]
     public function edit(Request $request, ManagerRegistry $doctrine): Response
     {
         $user = $this->getUser();
@@ -36,7 +36,7 @@ class UserController extends AbstractController
             $em->persist($user);
             $em->flush();
 
-            $this->addFlash('success', 'Votre profil a bien été modifié');
+            $this->addFlash('success', 'Votre profil à bien été modifié');
             return $this->redirectToRoute("user_index");
         }
 
@@ -46,8 +46,8 @@ class UserController extends AbstractController
         ]);
     }
 
-    #[Route('/adress', name: 'user_adress')]
-    public function Adress(Request $request, ManagerRegistry $doctrine): Response
+    #[Route('/EditUserAdress', name: 'edit_adress')]
+    public function EditAdress(Request $request, ManagerRegistry $doctrine): Response
     {
         $user = $this->getUser();
 
@@ -65,11 +65,19 @@ class UserController extends AbstractController
             $em->persist($address);
             $em->flush();
 
+            $this->addFlash('success', 'Une nouvelle adresse à bien été modifié');
             return $this->redirectToRoute('user_index');
         }
 
-        return $this->render('user/address.html.twig', [
+        return $this->render('user/editAddress.html.twig', [
             'form' => $AdressForm->createView()
         ]);
+    }
+
+    #[Route('/adress', name: 'user_adress')]
+    public function adress(): Response
+    {
+
+        return $this->render('user/address.html.twig');
     }
 }

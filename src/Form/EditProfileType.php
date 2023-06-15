@@ -14,7 +14,7 @@ class EditProfileType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('username',null, [
+            ->add('username', null, [
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Nom d\'utilisateur'
@@ -26,7 +26,7 @@ class EditProfileType extends AbstractType
                     'placeholder' => 'Adresse email'
                 ]
             ])
-            ->add('phone',null, [
+            ->add('phone', null, [
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Numéro de téléphone'
@@ -36,8 +36,7 @@ class EditProfileType extends AbstractType
                 'attr' => [
                     'class' => 'bouton-plein'
                 ]
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -1,10 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Modification du profil de {{app.user.username}} - Rheia{% endblock %}
+{% block title %}Liste de vos adresses - Rheia
+{% endblock %}
 
 {% block body %}
-<br><br><br><br>
-<h3>Ajout / Modification d'adresse</h3>
+	<section id="profile">
+		<h3>Vos adresses</h3>
+		<div>
+			<div id="menu">
+				<a href="{{path('user_index')}}">Mon profil</a>
+				<a href="{{path('user_adress')}}">Mes adresses</a>
+			</div>
+			<hr>
+			<div id="informations">
 
-{{form(form)}}
+                <a href="{{path('edit_adress')}}" class="bouton-plein" style="text-align:center;">Ajouter une adresse</a>
+			</div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+</section>
 {% endblock %}

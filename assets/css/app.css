@@ -1180,27 +1180,34 @@ section#fiche-produit {
   border: 1px solid #8C40FF;
 }
 
-#profile > form{
+#profile>form {
   margin-top: 30px;
 }
 
-#edit_profile{
+#edit_profile,
+#address {
   display: flex;
-    gap: 20px;
-    flex-direction: column;
-    align-items: center;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
 }
 
-#edit_profile > div > input{
+#edit_profile>div>input,
+#address>div>input {
   background-color: transparent;
-    padding: 10px 20px;
-    border-radius: 50px;
-    font-size: 16px;
-    width: 15vw;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 16px;
+  width: 15vw;
 }
 
-
-
+#address_country {
+  padding: 10px 0;
+  border-radius: 50px;
+  background-color: transparent;
+  border: 2px solid black;
+  font-size: 16px;
+}
 
 #menu {
   display: flex;
@@ -1226,14 +1233,13 @@ section#fiche-produit {
   font-family: 'Red Hat Display';
   font-weight: normal;
   margin-bottom: 15px;
-
 }
 
-#informations>a{
+#informations>a {
   align-self: center;
-    margin-top: 15px;
-    background-color: #8C40FF;
-    border-color: #8C40FF;
+  margin-top: 15px;
+  background-color: #8C40FF;
+  border-color: #8C40FF;
 }
 
 
