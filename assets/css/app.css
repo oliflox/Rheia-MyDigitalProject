@@ -114,8 +114,22 @@ header a {
 }
 
 #icone {
-  width: 250px;
+  width: 175px;
   justify-content: space-around;
+}
+
+div#logout {
+  text-align: center;
+  
+}
+
+#logout> a{
+  color: #CC2D45;
+}
+#logout >a:hover{
+  transform: scale(1.05);
+  transition: 0.3s;
+  color: #CC2D45;
 }
 
 #icone a {
@@ -689,7 +703,7 @@ div#contact_school {
 }
 
 .produit div div div i:hover {
-  background-color: #8C40FF;
+transform: scale(1.1);
   transition: 0.3s;
   cursor: pointer;
 }

@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <script src="https://kit.fontawesome.com/fc4d6d5887.js" crossorigin="anonymous"></script>
-        <link rel="icon" type="image/x-icon" href={{ asset('assets/images/Logo_rheia.svg') }}>
+        <link rel="icon" type="image/x-icon" href={{ asset('assets/images/logo_rheia_icon_blanc.svg') }}>
         {% block stylesheets %}
             {{encore_entry_link_tags('app')}}
         {% endblock %}
@@ -63,7 +63,7 @@
         
             <A href="{{path('cart_index')}}"><i class="fa-solid fa-cart-shopping"></i><p>Panier</p></a>
             <A href="{{path('user_index')}}"><i class="fa-solid fa-user"></i><p>Profil</p></a>
-			<A href="{{path('app_logout')}}"><i class="fa-solid fa-right-from-bracket"></i><p>Exit</p></a>
+            
 		</div>
 	</header>
     {% endif %}
@@ -105,9 +105,11 @@
         </div>
         <ul>
             <li><a href="#">FAQ</a></li>
-            <li><a href="#">Participer</a></li>
+            <li><a href="{{path('app_contact')}}">Participer</a></li>
             <li><a href="{{path('app_contact')}}">Nous contacter</a></li>
             <li><a href="#">Mentions légales</a></li>
+            <li><a href="#">Cookies</a></li>
+            <li><a href="#">Cookies</a></li>
         </ul>
         <div class="dedicace">Flavie la star</div>
     </footer> 
