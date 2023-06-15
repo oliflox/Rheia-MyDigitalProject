@@ -6,20 +6,34 @@
 {% endblock %}
 
 {% block body %}
+	<section id="profile">
 
-
-	<h1>UserController index</h1>
-	{{app.user.username}}
-	{{app.user.email}}
-	{{app.user.phone}}
-
-	{% for message in app.flashes('success') %}
-		<div>
+		<h2>Mon profil</h2>
+		{% for message in app.flashes('success') %}
 			{{ message }}
+		{% endfor %}
+		<div>
+			<div id="menu">
+				<a href="{{path('user_index')}}">Mon profil</a>
+				<a href="{{path('user_adress')}}">Mes adresses</a>
+			</div>
+			<hr>
+			<div id="informations">
+				<h3>Informations personnelles</h3>
+				<p>Nom :
+					{{app.user.username}}</p>
+				<p>Email :
+					{{app.user.email}}</p>
+				<p>Numéro de téléphone :
+					{{app.user.phone}}</p>
+				<a href="{{path('user_edit')}}" class="bouton-plein" style="text-align:center;">Modifier le profil</a>
+			</div>
+			<div></div>
+			<div></div>
 		</div>
-	{% endfor %}
 
-	<h2>Modifier le profil</h2>
-	<a href="{{path('user_edit')}}">Modifier le profil</a>
-	<a href="{{path('user_adress')}}">Ajouter une adresse</a>
+
+	</section>
+
+
 {% endblock %}

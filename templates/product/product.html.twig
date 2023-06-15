@@ -7,15 +7,40 @@
 
 {% block body %}
 
-	<section class="content">
-		<div>
+	<section id="fiche-produit">
+		<div id="gauche-produit">
 			<img src="/upload/attachments/{{ product.attachment }}" alt="{{product.title}}">
-			<div>
+		</div>
+		<div id="droite-produit">
+			<h3>{{product.title}}</h3>
+			<div id="cta-produit">
+				<h4>{{(product.price /100)}} €</h4>
+				<a href="{{ path('cart_add',{id : product.id}) }}" class="bouton-plein"><i class="fa-solid fa-cart-shopping"></i> Ajouter au panier</a>
+			</div>
+			<p>{{product.content|raw }}</p>
+			<div id="composition">
+				<p>Ingrédients</p>
 				<div>
-					<h2>{{product.title}}</h2>
-					<p>{{product.price}}</p>
-					<p>{{product.content|raw }}</p>
-					<p>c'est un super produit avec des super ingredients de fou malade</p>
+					<p>Nullam</p>
+					<p>50</p>
 				</div>
-			</section>
-		{% endblock %}
+				<hr>
+				<div>
+					<p>Nullam</p>
+					<p>50</p>
+				</div>
+				<hr>
+				<div>
+					<p>Nullam</p>
+					<p>50</p>
+				</div>
+				<hr>
+				<div>
+					<p>Nullam</p>
+					<p>50</p>
+				</div>
+				<hr>
+			</div>
+		</div>
+	</section>
+{% endblock %}

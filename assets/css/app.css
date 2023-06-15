@@ -129,11 +129,6 @@ header i {
   color: #CC2D45;
 }
 
-header i:hover {
-  color: #8C40FF;
-  transition: 0.3s;
-}
-
 header a:hover {
   color: #CC2D45;
   transition: 0.3s;
@@ -1100,5 +1095,124 @@ div#order_adresses {
   font-size: 26px;
   font-weight: 500;
 }
+
+section#fiche-produit {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 15vh 8vw 15vh;
+}
+
+#gauche-produit>img {
+  width: 25vw;
+  height: 25vw;
+  object-fit: contain;
+}
+
+#droite-produit {
+  width: 35vw;
+}
+
+#droite-produit h3 {
+  font-size: 38px;
+  font-family: 'Red Hat Display';
+  font-weight: 600;
+}
+
+#droite-produit>#cta-produit {
+  display: flex;
+  gap: 15px;
+  margin: 15px 0px;
+}
+
+#droite-produit>#cta-produit>h4 {
+  font-size: 27px;
+  color: #CC2D45;
+  padding: 5px 25px;
+  border: 2px solid #CC2D45;
+  border-radius: 50px;
+}
+
+#droite-produit>div>a {
+  gap: 15px;
+  background-color: #FFC940;
+  border-color: #FFC940;
+}
+
+#composition {
+  margin-top: 50px;
+}
+
+#composition>p {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+#composition>div {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 15px;
+}
+
+#profile {
+  padding: 15vh 15vw;
+}
+
+#profile>h2 {
+  font-size: 45px;
+  font-family: 'Red Hat Display';
+  font-weight: 500;
+}
+
+#profile>div {
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+#profile>div>div {
+  min-width: 80px;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+#profile>div>hr {
+  border: 1px solid #8C40FF;
+}
+
+#menu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#menu>a {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 5px 20px;
+  border-radius: 50px;
+}
+
+#menu a:hover {
+  background-color: lightgray;
+  transition: 0.3s;
+}
+
+#informations>h3 {
+  font-size: 22px;
+  font-family: 'Red Hat Display';
+  font-weight: normal;
+  margin-bottom: 15px;
+
+}
+
+#informations>a{
+  align-self: center;
+    margin-top: 15px;
+    background-color: #8C40FF;
+    border-color: #8C40FF;
+}
+
 
 /*# sourceMappingURL=global.css.map */
