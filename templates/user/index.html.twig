@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil de {{app.user.username}} - Rheia{% endblock %}
+
+{% block body %}
+
+
+
+<h1>UserController index</h1>
+{{app.user.username}}
+{{app.user.email}}
+{{app.user.phone}}
+
+{% for message in app.flashes('success') %}
+    <div>
+        {{ message }}
+        </div>
+{% endfor %}
+
+<h2>Modifier le profil</h2>
+<a href="{{path('user_edit')}}">Modifier le profil</a>
+<a href="#">Modifier le mot de passe</a>
+{% endblock %}

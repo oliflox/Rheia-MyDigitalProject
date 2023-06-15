@@ -60,8 +60,10 @@
 			</nav>
 		</div>
 		<div id="icone">
-            <A href="{{path('cart_index')}}"><i class="fa-solid fa-cart-shopping"></i></a>
-			<A href="{{path('app_logout')}}"><i class="fa-solid fa-right-from-bracket"></i></a>
+        
+            <A href="{{path('cart_index')}}"><i class="fa-solid fa-cart-shopping"></i><p>Panier</p></a>
+            <A href="{{path('user_index')}}"><i class="fa-solid fa-user"></i><p>Profil</p></a>
+			<A href="{{path('app_logout')}}"><i class="fa-solid fa-right-from-bracket"></i><p>Exit</p></a>
 		</div>
 	</header>
     {% endif %}

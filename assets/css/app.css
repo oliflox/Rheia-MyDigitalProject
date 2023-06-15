@@ -113,8 +113,14 @@
   }
 
   #icone{
-    width: 100px;
+    width: 250px;
     justify-content: space-around;
+  }
+
+  #icone a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   header i{
@@ -592,7 +598,7 @@ text-align: center;
     justify-content: center;
   }
   .produit div div:nth-child(2) {
-    max-width: 250px;
+    max-width: 300px;
     max-height: 250px;
     object-fit: contain;
   }

@@ -24,15 +24,8 @@ class CartController extends AbstractController
     {
         $cartService->addToCart($id);
 
+        $this->addFlash('add', 'Le produit a bien été ajouté au panier');
         return $this->redirectToRoute('shop_index');
-    }
-
-    #[Route('/mon-panier/removeAll', name: 'cart_removeAll')]
-    public function removeAll(CartService $cartService): Response
-    {
-        $cartService->removeCartAll();
-
-        return $this->redirectToRoute('cart_index');
     }
 
     #[Route('/mon-panier/remove/{id<\d+>}', name: 'cart_remove')]
