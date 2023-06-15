@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Adress;
+use App\Form\AddressType;
 use App\Form\EditProfileType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,14 +22,14 @@ class UserController extends AbstractController
     }
 
     #[Route('/edit', name: 'user_edit')]
-    public function edit(Request $request,ManagerRegistry $doctrine): Response
+    public function edit(Request $request, ManagerRegistry $doctrine): Response
     {
         $user = $this->getUser();
         $form = $this->createForm(EditProfileType::class, $user);
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
 
             $this->doctrine = $doctrine;
             $em = $doctrine->getManager();
@@ -39,8 +41,35 @@ class UserController extends AbstractController
         }
 
 
-        return $this->render('user/editProfile.html.twig',[
+        return $this->render('user/editProfile.html.twig', [
             'form' => $form->createView()
+        ]);
+    }
+
+    #[Route('/adress', name: 'user_adress')]
+    public function Adress(Request $request, ManagerRegistry $doctrine): Response
+    {
+        $user = $this->getUser();
+
+        $address = new Adress();
+        $address->setUser($user);
+
+        $AdressForm = $this->createForm(AddressType::class, $address);
+
+        $AdressForm->handleRequest($request);
+
+        if ($AdressForm->isSubmitted() && $AdressForm->isValid()) {
+
+            $this->doctrine = $doctrine;
+            $em = $doctrine->getManager();
+            $em->persist($address);
+            $em->flush();
+
+            return $this->redirectToRoute('user_index');
+        }
+
+        return $this->render('user/address.html.twig', [
+            'form' => $AdressForm->createView()
         ]);
     }
 }

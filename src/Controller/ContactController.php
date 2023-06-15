@@ -34,7 +34,7 @@ class ContactController extends AbstractController
                 $school = null;
             }
 
-            $this->addFlash('success', 'Votre demande contact à été envoyé avec succès !');
+            $this->addFlash('success', 'Votre demande de contact à été envoyé avec succès !');
 
 
             $email = (new Email())

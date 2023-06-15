@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification du profil de {{app.user.username}} - Rheia{% endblock %}
+
+{% block body %}
+<br><br><br><br>
+<h3>Ajout / Modification d'adresse</h3>
+
+{{form(form)}}
+{% endblock %}

@@ -1,751 +1,860 @@
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 @font-face {
-    font-family: "Astro Earth";
-    src: url("../font/Astro-Earth-Serif-Font/astro-earth.ttf");
-  }
-  @font-face {
-    font-family: "Red Hat Display";
-    src: url("../font/Red_Hat_Display/RedHatDisplay-VariableFont_wght.ttf");
-  }
-
-  a{
-    text-decoration: none;
-  }
-
-  * {
-    margin: 0;
-    padding: 0;
-    font-family: "Red Hat Display";
-  }
-
-  .dedicace{
-    display: none;
-  }
-  
-  body {
-    background-color: #FFF8E5;
-  }
-  
-  
-  h1 {
-    font-family: "Astro Earth";
-    font-weight: 400;
-    font-size: 128px;
-  }
-  
-  h2 {
-    font-family: "Astro Earth";
-    font-size: 64px;
-  }
-  
-  h3 {
-    font-family: "Red Hat Display";
-    font-size: 50px;
-  }
-  
-  h4 {
-    font-family: "Red Hat Display";
-    font-size: 38px;
-  }
-  
-  p {
-    font-family: "Red Hat Display";
-    font-size: 18px;
-  }
-  
-  .content{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 15vh 8vw 15vh;
-  }
-
-  .content h2{
-    font-weight: 600;
-    font-size: 50px;
-  }
-
-  header {
-    position: fixed;
-    width: 100%;
-    background-color: rgba(255, 248, 229, 0.7450980392);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 86px;
-  }
-  
-  header div {
-    display: flex;
-  }
-  
-  header div button {
-    margin: 0 10px;
-  }
-  
-  header div nav {
-    margin-left: 50px;
-    font-size: 18px;
-    font-family: "Red Hat Display";
-    display: flex;
-    align-items: center;
-  }
-  
-  header div nav ul {
-    display: flex;
-    gap: 35px;
-  }
-  
-  header div nav ul li {
-    list-style: none;
-  }
-  
-  header div nav ul li:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    transform: scale(1.05);
-    transition: 0.3s;
-  }
-  
-  header a {
-    color: #282828;
-    text-decoration: none;
-  }
-
-  #icone{
-    width: 250px;
-    justify-content: space-around;
-  }
-
-  #icone a{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  header i{
-    font-size: 25px;
-  }
-
-  header i:hover{
-    color: #CC2D45;
-    transition: 0.3s;
-  }
-  
-  header a:hover {
-    color: #CC2D45;
-  }
-  
-  .bouton-vide {
-    padding: 6px 25px;
-    border-radius: 50px;
-    background-color: transparent;
-    border: 2px solid #CC2D45;
-    color: #CC2D45;
-    cursor: pointer;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .bouton-vide i {
-    margin-left: 10px;
-  }
-  
-  .bouton-vide:hover {
-    transform: scale(1.05);
-    transition: 0.3s;
-  }
-  
-  .bouton-plein {
-    padding: 6px 25px;
-    border-radius: 50px;
-    background-color: #CC2D45;
-    border: 2px solid #CC2D45;
-    color: white;
-    cursor: pointer;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .bouton-plein i {
-    margin-left: 10px;
-  }
-  
-  .bouton-plein:hover {
-    transform: scale(1.05);
-    transition: 0.3s;
-  }
-  
-  .droite {
-    align-self: flex-end;
-  }
-  
-  .Top {
-    background-image: url(../img/Bg_Top.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 20vh;
-    padding: 130px;
-  }
-  
-  .Top h2 {
-    color: white;
-  }
-  
-  .popupContainer {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 9999;
-  }
-  
-  .popupContent {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #FFFCF4;
-    padding: 80px;
-    width: 1000px;
-    border-radius: 70px;
-    text-align: center;
-  }
-  
-  .popupContent form {
-    margin-top: 50px;
-  }
-  
-  .popupContent form input {
-    background-color: transparent;
-    border: 1px solid black;
-    border-radius: 50px;
-    padding: 14px 20px;
-    font-size: 16px;
-  }
-  
-  .send {
-    background-color: #CC2D45 !important;
-    border: 1px solid #CC2D45 !important;
-    color: white !important;
-    width: 100%;
-  }
-  
-  .closeBtn {
-    margin-top: 10px;
-  }
-  
-  footer {
-    background-color: #EDABB5;
-    background-image: url(../img/Mascotte_rheia.svg);
-    background-position: 85%;
-    background-repeat: no-repeat;
-    background-size: contain;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px 0 30px 0;
-  }
-  
-  footer img {
-    width: 350px;
-  }
-  
-  footer div {
-    margin-top: 50px;
-    display: flex;
-    gap: 50px;
-  }
-  
-  footer div i {
-    font-size: 29px;
-    color: #CC2D45;
-  }
-  
-  footer div i:hover {
-    color: #8C40FF;
-    transition: 0.3s;
-  }
-  
-  footer ul {
-    margin-top: 25px;
-    display: flex;
-    gap: 35px;
-    color: black;
-    font-family: "Red Hat Display";
-    font-size: 20px;
-  }
-  
-  footer ul li {
-    list-style: none;
-  }
-
-  footer a{
-    text-decoration: none;
-    color:#282828;
-  }
-  
-  /*---------------------------------------------------------------------------------------------------------------------------------*/
-  #Top_Home {
-    background-image: url(../img/Bg_Top_Home.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 800px;
-    padding: 0 23%;
-  }
-
-  #Top_Home div {
-text-align: center;
-  }
-#Top_Home .bouton-vide{
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 15px;
+  font-family: "Astro Earth";
+  src: url("../font/Astro-Earth-Serif-Font/astro-earth.ttf");
 }
 
-  #Top_Home h1 {
-    color: #282828;
-  }
-  #Top_Home h2 {
-    font-family: "Red Hat Display";
-    font-size: 48px;
-    color: #CC2D45;
-  }
-  
-  #Title {
-    background-color: #8C40FF;
-    background-image: url(../img/BG_Title.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 500px;
-    display: flex;
-    align-items: center;
-    gap: 100px;
-    padding: 150px 17.5%;
-    color: white;
-  }
-  #Title img {
-    border-radius: 50px;
-    width: 300px;
-    height: 350px;
-  }
-  #Title div#description {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-  }
-  #Title div#description p {
-    font-size: 22px;
-  }
-  
-  #concept {
-    background-color: #FFD875;
-    background-image: url(../img/Monster_Concept.svg),url(../img/Bg_Concept.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    padding: 150px 5% 150px 25%;
-  }
-  #concept .container {
-    background-color: #FFF8E5;
-    border-radius: 30px;
-    padding: 35px 50px;
-    margin-top: 65px;
-    width: 85%;
-  }
-  #concept .container .child {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-  }
-  #concept .container .child div#Number {
-    color: #FFC940;
-    font-size: 100px;
-    font-family: "Astro Earth";
-  }
-  #concept .container .child div {
-    text-align: initial;
-    align-items: flex-start;
-    flex-direction: column;
-  }
-  
-  #last {
-    background-image: url(../img/Bg_chiffres.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 150px 20%;
-    display: flex;
-    justify-content: space-around;
-  }
-  #last div {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    font-size: 25px;
-    text-align: center;
-  }
-  #last div h2 {
-    color: #CC2D45;
-    margin-bottom: 15px;
-  }
-
-  #last div .bouton-vide{
-    margin-top: 30px;
-  }
-
-  #last div a{
-    text-decoration: none;
-  }
-  
-  #classement {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 100px;
-  }
-  #classement form {
-    margin-top: 20px;
-    background-color: transparent;
-    border: 1.5px solid black;
-    padding: 10px 20px;
-    border-radius: 50px;
-  }
-  #classement form input {
-    border: 0;
-    background-color: transparent;
-    font-size: 18px;
-  }
-  #classement form input:focus {
-    outline: none;
-  }
-  #classement form button {
-    border: 0;
-    background-color: transparent;
-    margin-left: 20px;
-    cursor: pointer;
-    font-size: 18px;
-  }
-  #classement form button:hover {
-    color: #CC2D45;
-    transition: 0.2s;
-  }
-  #classement table {
-    font-family: "Red Hat Display";
-    margin-top: 30px;
-    border-spacing: 10px 30px;
-  }
-  #classement table a {
-    color: black;
-    text-decoration: none;
-  }
-  #classement table a i {
-    margin-left: 5px;
-    color: #8C40FF;
-  }
-  #classement table th {
-    text-align: left;
-  }
-  #classement table #count {
-    font-family: "Astro Earth";
-    color: #CC2D45;
-    font-size: 48px;
-  }
-  #classement table #name {
-    padding: 20px 25px;
-    border: 2px solid rgba(140, 64, 255, 0.1137254902);
-    border-radius: 30px;
-    font-size: 18px;
-    width: 20vw;
-  }
-  #classement table #adresse {
-    font-size: 18px;
-    color: lightgrey;
-  }
-  #classement table #poids {
-    background-color: rgba(140, 64, 255, 0.1137254902);
-    border-radius: 30px;
-    padding: 30px 60px;
-    color: #8C40FF;
-    font-weight: 700;
-  }
-  
-   #Contact {
-    margin: 50px 0;
-    display: flex;
-    gap: 80px;
-    width: 100%;
-    justify-content: center;
-  }
-  #Contact form {
-    width: 100%;
-  }
-  #Contact form input,
-  #Contact form textarea {
-    background-color: transparent;
-    border: 2px solid black;
-    border-radius: 50px;
-    padding: 15px 20px;
-    font-size: 16px;
-  }
-  #Contact form input::placeholder,
-  #Contact form textarea::placeholder {
-    color: black;
-  }
-  #Contact form input:hover,
-  #Contact form textarea:hover {
-    border: 2px solid #8C40FF;
-    transition: 0.3s;
-  }
-  #Contact form input[type=submit] {
-    margin-top: 20px;
-    padding: 6px 25px;
-    border-radius: 50px;
-    background-color: #8C40FF;
-    border: 2px solid #8C40FF;
-    color: white;
-    cursor: pointer;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-  }
-  #Contact form input[type=submit] i {
-    margin-left: 10px;
-  }
-  #Contact form input[type=submit]:hover {
-    transform: scale(1.05);
-    transition: 0.3s;
-  }
-  #Contact form input[type=radio] {
-    cursor: pointer;
-    margin-top: 10px;
-    padding: 0;
-    appearance: none;
-    width: 25px;
-    height: 25px;
-    border: 2px solid #8C40FF;
-    border-radius: 5px;
-  }
-  #Contact form input[type=radio]:checked {
-    background-color: #8C40FF;
-  }
-  #Contact form textarea {
-    border-radius: 35px;
-  }
-  #Contact form .form-group {
-    display: flex;
-    gap: 50px;
-    margin-bottom: 10px;
-  }
-  #Contact form .form-group input[type=text],
-  #Contact form .form-group input[type=email],
-  #Contact form .form-group textarea {
-    width: 100%;
-  }
-  #Contact form .form-group input[type=text].half-width,
-  #Contact form .form-group input[type=email].half-width {
-    width: 50%;
-  }
-  #Contact h4 {
-    font-size: 30px;
-  }
-  #Contact #follow {
-    text-align: center;
-    border: 2px solid #CC2D45;
-    height: fit-content;
-    padding: 15px;
-    border-radius: 15px;
-  }
-  #Contact #follow div {
-    display: flex;
-    width: 100%;
-    justify-content: space-evenly;
-    margin-top: 20px;
-  }
-  #Contact #follow div a {
-    font-size: 25px;
-    color: #CC2D45;
-  }
-  #Contact #follow div a:hover {
-    transform: scale(1.2);
-    transition: 0.3s;
-  }
-  
-    .produit {
-    padding: 100px 10vw;
-  }
-  .produit div {
-    display: flex;
-    gap: 35px;
-  }
-  .produit div div {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    justify-content: center;
-  }
-  .produit div div:nth-child(2) {
-    max-width: 300px;
-    max-height: 250px;
-    object-fit: contain;
-  }
-  .produit div div img {
-    max-width: 250px;
-    max-height: 250px;
-    object-fit: contain;
-  }
-  .produit div div div {
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-  }
-  .produit div div div i {
-    background-color: #FFC940;
-    padding: 15px;
-    border-radius: 50%;
-    color: white;
-    font-size: 25px;
-  }
-  .produit div div div i:hover {
-    background-color: #8C40FF;
-    transition: 0.3s;
-    cursor: pointer;
-  }
-  .produit .row {
-    margin-top: -5vh;
-  }
-  .produit .row:nth-child(even) {
-    justify-content: flex-end;
-  }
-  .produit .row:nth-child(even) img {
-    height: 250px;
-  }
-  .produit .name {
-    font-size: 20px;
-    font-weight: 600;
-  }
-  .produit .prix {
-    font-weight: bold;
-    color: #CC2D45;
-    font-size: 22px;
-  }
-  .produit .more {
-    color: rgba(40, 40, 40, 0.568627451);
-    font-family: "Red Hat Display";
-    cursor: pointer;
-    font-size: 16px;
-  }
-  .produit .more i {
-    margin-left: 5px;
-  }
-  .produit .more:hover {
-    text-underline-offset: 3px;
-    text-decoration: underline;
-  }
-  .produit .more:hover i {
-    transform: scale(1.2);
-  }
-
-  #about{
-    font-size: 150px;
-    color: #CC2D45;
-    text-align: center;
-    padding: 50px 0;
-  }
-
-
-#inscription, #connexion {
-    display: flex;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 15px;
-  }
-  #inscription h3, #connexion h3 {
-    margin-bottom: 20px;
-  }
-  #inscription div, #connexion div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 50%;
-  }
-  #inscription div form, #connexion div form {
-    width: 100%;
-  }
-  #inscription div form input, #connexion div form input {
-    background-color: transparent;
-    border: 2px solid black;
-    border-radius: 50px;
-    padding: 15px 20px;
-    font-size: 16px;
-  }
-  #inscription div form input::placeholder, #connexion div form input::placeholder {
-    color: black;
-  }
-  #inscription div form input:hover, #connexion div form input:hover {
-    border: 2px solid #8C40FF;
-    transition: 0.3s;
-  }
-  #inscription div form input[type=submit], #connexion div form input[type=submit] {
-    padding: 6px 25px;
-    border-radius: 50px;
-    background-color: #CC2D45;
-    border: 2px solid #CC2D45;
-    color: white;
-    cursor: pointer;
-    font-size: 18px;
-  }
-  #inscription div form input[type=submit] i, #connexion div form input[type=submit] i {
-    margin-left: 10px;
-  }
-  #inscription div form input[type=submit]:hover, #connexion div form input[type=submit]:hover {
-    transform: scale(1.05);
-    transition: 0.3s;
-  }
-  #inscription div form .form-group input[type=text],
-  #inscription div form .form-group input[type=email],
-  #inscription div form .form-group input[type=password],
-  #inscription div form .form-group textarea, #connexion div form .form-group input[type=text],
-  #connexion div form .form-group input[type=email],
-  #connexion div form .form-group input[type=password],
-  #connexion div form .form-group textarea {
-    width: 100%;
-  }
-  #inscription div i, #connexion div i {
-    margin-left: 10px;
-  }
-  #inscription div a, #connexion div a {
-    color: #CC2D45;
-    text-decoration: none;
-    font-size: 18px;
-  }
-
-  #inscription .form-group {
-    width: 100%;
+@font-face {
+  font-family: "Red Hat Display";
+  src: url("../font/Red_Hat_Display/RedHatDisplay-VariableFont_wght.ttf");
 }
-#inscription div{
-    gap: 15px;
+
+a {
+  text-decoration: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Red Hat Display";
+}
+
+.dedicace {
+  display: none;
+}
+
+body {
+  background-color: #FFF8E5;
 }
 
 
-#inscription div form input[type=submit]{
-    margin-top: 30px;
+h1 {
+  font-family: "Astro Earth";
+  font-weight: 400;
+  font-size: 128px;
+}
+
+h2 {
+  font-family: "Astro Earth";
+  font-size: 64px;
+}
+
+h3 {
+  font-family: "Red Hat Display";
+  font-size: 50px;
+}
+
+h4 {
+  font-family: "Red Hat Display";
+  font-size: 38px;
+}
+
+p {
+  font-family: "Red Hat Display";
+  font-size: 18px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15vh 8vw 15vh;
+}
+
+.content h2 {
+  font-weight: 600;
+  font-size: 50px;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  background-color: rgba(255, 248, 229, 0.7450980392);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 86px;
+}
+
+header div {
+  display: flex;
+}
+
+header div button {
+  margin: 0 10px;
+}
+
+header div nav {
+  margin-left: 50px;
+  font-size: 18px;
+  font-family: "Red Hat Display";
+  display: flex;
+  align-items: center;
+}
+
+header div nav ul {
+  display: flex;
+  gap: 35px;
+}
+
+header div nav ul li {
+  list-style: none;
+}
+
+header div nav ul li:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+header a {
+  color: #282828;
+  text-decoration: none;
+}
+
+#icone {
+  width: 250px;
+  justify-content: space-around;
+}
+
+#icone a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header i {
+  font-size: 25px;
+  color: #CC2D45;
+}
+
+header i:hover {
+  color: #8C40FF;
+  transition: 0.3s;
+}
+
+header a:hover {
+  color: #CC2D45;
+  transition: 0.3s;
+}
+
+.bouton-vide {
+  padding: 6px 25px;
+  border-radius: 50px;
+  background-color: transparent;
+  border: 2px solid #CC2D45;
+  color: #CC2D45;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.bouton-vide i {
+  margin-left: 10px;
+}
+
+.bouton-vide:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+.bouton-plein {
+  padding: 6px 25px;
+  border-radius: 50px;
+  background-color: #CC2D45;
+  border: 2px solid #CC2D45;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.bouton-plein i {
+  margin-left: 10px;
+}
+
+.bouton-plein:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+.droite {
+  align-self: flex-end;
+}
+
+.Top {
+  background-image: url(../img/Bg_Top.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 20vh;
+  padding: 130px;
+}
+
+.Top h2 {
+  color: white;
+}
+
+.popupContainer {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.popupContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #FFFCF4;
+  padding: 80px;
+  width: 1000px;
+  border-radius: 70px;
+  text-align: center;
+}
+
+.popupContent form {
+  margin-top: 50px;
+}
+
+.popupContent form input {
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 50px;
+  padding: 14px 20px;
+  font-size: 16px;
+}
+
+.send {
+  background-color: #CC2D45 !important;
+  border: 1px solid #CC2D45 !important;
+  color: white !important;
+  width: 100%;
+}
+
+.closeBtn {
+  margin-top: 10px;
+}
+
+footer {
+  background-color: #EDABB5;
+  background-image: url(../img/Mascotte_rheia.svg);
+  background-position: 85%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 0 30px 0;
+}
+
+footer img {
+  width: 350px;
+}
+
+footer div {
+  margin-top: 50px;
+  display: flex;
+  gap: 50px;
+}
+
+footer div i {
+  font-size: 29px;
+  color: #CC2D45;
+}
+
+footer div i:hover {
+  transform: scale(1.2);
+  transition: 0.3s;
+}
+
+footer ul {
+  margin-top: 25px;
+  display: flex;
+  gap: 35px;
+  color: black;
+  font-family: "Red Hat Display";
+  font-size: 20px;
+}
+
+footer ul li {
+  list-style: none;
+}
+
+footer a {
+  text-decoration: none;
+  color: #282828;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+#Top_Home {
+  background-image: url(../img/Bg_Top_Home.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 800px;
+  padding: 0 23%;
+}
+
+#Top_Home div {
+  text-align: center;
+}
+
+#Top_Home .bouton-vide {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+}
+
+#Top_Home h1 {
+  color: #282828;
+}
+
+#Top_Home h2 {
+  font-family: "Red Hat Display";
+  font-size: 48px;
+  color: #CC2D45;
+}
+
+#Title {
+  background-color: #8C40FF;
+  background-image: url(../img/BG_Title.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  gap: 100px;
+  padding: 150px 17.5%;
+  color: white;
+}
+
+#Title img {
+  border-radius: 50px;
+  width: 300px;
+  height: 350px;
+}
+
+#Title div#description {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+#Title div#description p {
+  font-size: 22px;
+}
+
+#concept {
+  background-color: #FFD875;
+  background-image: url(../img/Monster_Concept.svg), url(../img/Bg_Concept.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  padding: 150px 5% 150px 25%;
+}
+
+#concept .container {
+  background-color: #FFF8E5;
+  border-radius: 30px;
+  padding: 35px 50px;
+  margin-top: 65px;
+  width: 85%;
+}
+
+#concept .container .child {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+#concept .container .child div#Number {
+  color: #FFC940;
+  font-size: 100px;
+  font-family: "Astro Earth";
+}
+
+#concept .container .child div {
+  text-align: initial;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+#last {
+  background-image: url(../img/Bg_chiffres.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 150px 20%;
+  display: flex;
+  justify-content: space-around;
+}
+
+#last div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 25px;
+  text-align: center;
+}
+
+#last div h2 {
+  color: #CC2D45;
+  margin-bottom: 15px;
+}
+
+#last div .bouton-vide {
+  margin-top: 30px;
+}
+
+#last div a {
+  text-decoration: none;
+}
+
+#classement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 100px;
+}
+
+#classement form {
+  margin-top: 20px;
+  background-color: transparent;
+  border: 1.5px solid black;
+  padding: 10px 20px;
+  border-radius: 50px;
+}
+
+#classement form input {
+  border: 0;
+  background-color: transparent;
+  font-size: 18px;
+}
+
+#classement form input:focus {
+  outline: none;
+}
+
+#classement form button {
+  border: 0;
+  background-color: transparent;
+  margin-left: 20px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+#classement form button:hover {
+  color: #CC2D45;
+  transition: 0.2s;
+}
+
+#classement table {
+  font-family: "Red Hat Display";
+  margin-top: 30px;
+  border-spacing: 10px 30px;
+}
+
+#classement table a {
+  color: black;
+  text-decoration: none;
+}
+
+#classement table a i {
+  margin-left: 5px;
+  color: #8C40FF;
+}
+
+#classement table th {
+  text-align: left;
+}
+
+#classement table #count {
+  font-family: "Astro Earth";
+  color: #CC2D45;
+  font-size: 48px;
+}
+
+#classement table #name {
+  padding: 20px 25px;
+  border: 2px solid rgba(140, 64, 255, 0.1137254902);
+  border-radius: 30px;
+  font-size: 18px;
+  width: 20vw;
+}
+
+#classement table #adresse {
+  font-size: 18px;
+  color: lightgrey;
+}
+
+#classement table #poids {
+  background-color: rgba(140, 64, 255, 0.1137254902);
+  border-radius: 30px;
+  padding: 30px 60px;
+  color: #8C40FF;
+  font-weight: 700;
+}
+
+#Contact {
+  margin: 50px 0;
+  display: flex;
+  gap: 80px;
+  width: 100%;
+  justify-content: center;
+}
+
+#Contact form {
+  width: 100%;
+}
+
+#Contact form input,
+#Contact form textarea {
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 50px;
+  padding: 15px 20px;
+  font-size: 16px;
+}
+
+#Contact form input::placeholder,
+#Contact form textarea::placeholder {
+  color: black;
+}
+
+#Contact form input:hover,
+#Contact form textarea:hover {
+  border: 2px solid #8C40FF;
+  transition: 0.3s;
+}
+
+#Contact form input[type=submit] {
+  margin-top: 20px;
+  padding: 6px 25px;
+  border-radius: 50px;
+  background-color: #8C40FF;
+  border: 2px solid #8C40FF;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+#Contact form input[type=submit] i {
+  margin-left: 10px;
+}
+
+#Contact form input[type=submit]:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+button#contact_envoyer {
+  background-color: #8C40FF;
+  border-color: #8C40FF;
+  margin-top: 15px;
+}
+
+div#contact_school {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.alert.alert-success {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#Contact form input[type=radio] {
+  cursor: pointer;
+  margin-top: 10px;
+  padding: 0;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border: 2px solid #8C40FF;
+  border-radius: 5px;
+}
+
+#Contact form input[type=radio]:checked {
+  background-color: #8C40FF;
+}
+
+#Contact form textarea {
+  border-radius: 35px;
+}
+
+#Contact form .form-group {
+  display: flex;
+  gap: 50px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+#Contact form .form-group input[type=text],
+#Contact form .form-group input[type=email],
+#Contact form .form-group textarea {
+  width: 100%;
+}
+
+#Contact form .form-group input[type=text].half-width,
+#Contact form .form-group input[type=email].half-width {
+  width: 50%;
+}
+
+.form-group>div {
+  width: 100%;
+}
+
+#Contact h4 {
+  font-size: 30px;
+}
+
+#Contact #follow {
+  text-align: center;
+  border: 2px solid #CC2D45;
+  height: fit-content;
+  padding: 15px;
+  border-radius: 15px;
+}
+
+#Contact #follow div {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+#Contact #follow div a {
+  font-size: 25px;
+  color: #CC2D45;
+}
+
+#Contact #follow div a:hover {
+  transform: scale(1.2);
+  transition: 0.3s;
+}
+
+.produit {
+  padding: 100px 10vw;
+}
+
+.produit div {
+  display: flex;
+  gap: 35px;
+}
+
+.produit div div {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+}
+
+.produit div div:nth-child(2) {
+  max-width: 300px;
+  max-height: 250px;
+  object-fit: contain;
+}
+
+.produit div div img {
+  max-width: 250px;
+  max-height: 250px;
+  object-fit: contain;
+}
+
+.produit div div div {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.produit div div div i {
+  background-color: #FFC940;
+  padding: 15px;
+  border-radius: 50%;
+  color: white;
+  font-size: 25px;
+}
+
+.produit div div div i:hover {
+  background-color: #8C40FF;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.produit .row {
+  margin-top: -5vh;
+}
+
+.produit .row:nth-child(even) {
+  justify-content: flex-end;
+}
+
+.produit .row:nth-child(even) img {
+  height: 250px;
+}
+
+.produit .name {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.produit .prix {
+  font-weight: bold;
+  color: #CC2D45;
+  font-size: 22px;
+}
+
+.produit .more {
+  color: rgba(40, 40, 40, 0.568627451);
+  font-family: "Red Hat Display";
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.produit .more i {
+  margin-left: 5px;
+}
+
+.produit .more:hover {
+  text-underline-offset: 3px;
+  text-decoration: underline;
+}
+
+.produit .more:hover i {
+  transform: scale(1.2);
+}
+
+#about {
+  font-size: 150px;
+  color: #CC2D45;
+  text-align: center;
+  padding: 50px 0;
+}
+
+
+#inscription,
+#connexion {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#inscription h3,
+#connexion h3 {
+  margin-bottom: 20px;
+}
+
+#inscription div,
+#connexion div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 50%;
+}
+
+#inscription div form,
+#connexion div form {
+  width: 100%;
+}
+
+#inscription div form input,
+#connexion div form input {
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 50px;
+  padding: 15px 20px;
+  font-size: 16px;
+}
+
+#inscription div form input::placeholder,
+#connexion div form input::placeholder {
+  color: black;
+}
+
+#inscription div form input:hover,
+#connexion div form input:hover {
+  border: 2px solid #8C40FF;
+  transition: 0.3s;
+}
+
+#inscription div form input[type=submit],
+#connexion div form input[type=submit] {
+  padding: 6px 25px;
+  border-radius: 50px;
+  background-color: #CC2D45;
+  border: 2px solid #CC2D45;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+#inscription div form input[type=submit] i,
+#connexion div form input[type=submit] i {
+  margin-left: 10px;
+}
+
+#inscription div form input[type=submit]:hover,
+#connexion div form input[type=submit]:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+#inscription div form .form-group input[type=text],
+#inscription div form .form-group input[type=email],
+#inscription div form .form-group input[type=password],
+#inscription div form .form-group textarea,
+#connexion div form .form-group input[type=text],
+#connexion div form .form-group input[type=email],
+#connexion div form .form-group input[type=password],
+#connexion div form .form-group textarea {
+  width: 100%;
+}
+
+#inscription div i,
+#connexion div i {
+  margin-left: 10px;
+}
+
+#inscription div a,
+#connexion div a {
+  color: #CC2D45;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+#inscription .form-group {
+  width: 100%;
+}
+
+#inscription div {
+  gap: 15px;
+}
+
+
+#inscription div form input[type=submit] {
+  margin-top: 30px;
 }
 
 .cart {
@@ -755,33 +864,33 @@ text-align: center;
   padding: 25px;
 }
 
-.cart > div{
+.cart>div {
   display: flex;
   gap: 50px;
 }
 
-.cart > div > div{
+.cart>div>div {
   display: flex;
   gap: 10px;
   flex-direction: column;
 }
 
-.cart>div>div>img{
+.cart>div>div>img {
   width: 150px;
   height: 150px;
   object-fit: contain;
-} 
-
-.cart h3{
-    font-size: 25px;
-    font-weight: 500;
 }
 
-.cart p{
+.cart h3 {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.cart p {
   font-size: 16px;
 }
 
-.cart a{
+.cart a {
   color: black;
 }
 
@@ -790,7 +899,8 @@ text-align: center;
   display: flex;
   justify-content: space-evenly;
 }
-hr{
+
+hr {
   border: 1px solid black;
 }
 
@@ -803,37 +913,40 @@ section.boutique {
   justify-content: center;
 }
 
-.boutique p{
+.boutique p {
   text-align: center;
 }
 
-.boutique a{
+.boutique a {
   margin-top: 20px;
 }
 
-#total{
-  font-weight:bold; font-size:25px; margin-top:15px;
+#total {
+  font-weight: bold;
+  font-size: 25px;
+  margin-top: 15px;
 }
 
-#total-price{
-  font-weight:bold;
+#total-price {
+  font-weight: bold;
   color: #CC2D45;
-  display: flex;justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
-#total-cart button{
-    background-color: #CC2D45;
-    font-weight: bold;
-    font-size: 16px;
-    padding: 10px 20px;
-    border-radius: 20px;
-    color: white;
-    border: none;
-    margin-top: 15px;
-    cursor: pointer;
+#total-cart button {
+  background-color: #CC2D45;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: white;
+  border: none;
+  margin-top: 15px;
+  cursor: pointer;
 }
 
-#total-cart button:hover{
+#total-cart button:hover {
   transform: scale(1.05);
   transition: 0.3s;
 }
@@ -846,7 +959,7 @@ div#total-cart {
   width: 15vw;
   text-align: right;
   position: sticky;
-    top: 125px;
+  top: 125px;
 }
 
 #total-cart>div>div {
@@ -863,7 +976,7 @@ div#total-cart {
   padding: 100px;
 }
 
-#Commande form{
+#Commande form {
   display: flex;
   justify-content: space-between;
 }
@@ -873,63 +986,63 @@ div#total-cart {
   margin-top: 15px;
 }
 
-div#order_adresses{
+div#order_adresses {
   display: flex;
   gap: 15px;
 }
 
-#order_transporter{
+#order_transporter {
   display: flex;
   gap: 15px;
 }
 
-#product{
-  text-align:left; 
-  gap:20px;
+#product {
+  text-align: left;
+  gap: 20px;
   align-items: flex-start;
 }
 
-#bouton-nav{
+#bouton-nav {
   margin-top: 20px;
-  display:flex; 
-  justify-content:flex-end; 
-  gap:20px; 
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
   align-items: center;
 }
 
-#bouton-nav a{
+#bouton-nav a {
   text-decoration: none;
   color: black;
-} 
+}
 
-#bouton-nav a:hover{
+#bouton-nav a:hover {
   color: #8C40FF;
   transition: 0.3s;
 }
 
-#bouton-nav button{
+#bouton-nav button {
   background-color: #8C40FF;
   border: #8C40FF;
 }
 
-#product >img{
+#product>img {
   width: 70px;
   height: 70px;
   object-fit: contain;
   object-position: center;
 }
 
-#total-cart h4{
+#total-cart h4 {
   text-align: left;
   font-size: 25px;
   margin-bottom: 5px;
 }
 
-#total-cart  hr{
+#total-cart hr {
   margin: 10px 0;
 }
 
-#scroll{
+#scroll {
   height: 150px;
   overflow-y: scroll;
 }
@@ -937,18 +1050,20 @@ div#order_adresses{
 #scroll::-webkit-scrollbar {
   width: 7px;
 }
+
 #scroll::-webkit-scrollbar-track {
-  background: #c8838d; 
+  background: #c8838d;
 }
 
 #scroll::-webkit-scrollbar-thumb {
-  background: #CC2D45; 
-  border-radius:10px;
+  background: #CC2D45;
+  border-radius: 10px;
 }
+
 #scroll::-webkit-scrollbar-thumb:hover {
-  
-  background: #c90b27; 
-} 
+
+  background: #c90b27;
+}
 
 #recap {
   display: flex;
@@ -963,11 +1078,11 @@ div#order_adresses{
   flex-wrap: wrap;
 }
 
-#detail{
-  display:flex;
+#detail {
+  display: flex;
   align-content: center;
-  justify-content: space-between; 
-  margin-top:15px;
+  justify-content: space-between;
+  margin-top: 15px;
 }
 
 .card {
@@ -981,9 +1096,9 @@ div#order_adresses{
   max-width: 25vw;
 }
 
-.card > h4{
+.card>h4 {
   font-size: 26px;
   font-weight: 500;
 }
-  /*# sourceMappingURL=global.css.map */
-  
+
+/*# sourceMappingURL=global.css.map */

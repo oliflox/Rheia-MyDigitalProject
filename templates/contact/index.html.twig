@@ -1,56 +1,79 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contact - Rheia{% endblock %}
+{% block title %}Contact - Rheia
+{% endblock %}
 
 {% block body %}
- <div class="Top">
-        <h2>Contact</h2>
-    </div>
+	<div class="Top">
+		<h2>Contact</h2>
+	</div>
 
-{% for message in app.flashes('success') %}
-    <div class="alert alert-success">{{ message }}</div>
-{% endfor %}
+	{% for message in app.flashes('success') %}
+		<div class="alert alert-success">{{ message }}</div>
+	{% endfor %}
 
-    
-    <section id="Contact">
-        <div>
-        {{form(contact)}}
-        
-        {#
-        <form>
-    <div method="Post" class="form-group" action="index.php">
-      <input type="text" id="prenom" name="prenom" class="half-width" placeholder="Prénom" required>
-      <input type="text" id="nom" name="nom" class="half-width" placeholder="Nom"required>
-    </div>
-    <div class="form-group">
-      <input type="email" id="email" name="email" placeholder="Adresse e-mail"required>
-    </div>
-    <div class="form-group">
-      <input type="text" id="objet" name="objet" placeholder="Objet">
-    </div>
-    <div class="form-group">
-      <textarea id="message" name="message" placeholder="Message" rows="8" ></textarea>
-    </div>
-    <p>Vous êtes personnel enseignent et souhaitez vous inscrire au concours inter-écoles ?</p>
-    <label>
-      <input type="radio" name="choix" value="oui"> Oui
-    </label>
-    <label>
-      <input type="radio" name="choix" value="non"> Non
-    </label>
-    <input type="submit" value="Envoyer">
-  </form>#}
-        </div>
-        <div id="follow">
-            <h4>Suivez-nous !</h4>
-            <p>Pour ne rater aucune nouveauté !</p>
-            <div>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a> 
-                <a href="#"><i class="fa-brands fa-facebook-f"></i></a> 
-                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a> 
-                <a href="#"><i class="fa-brands fa-tiktok"></i></a>
-            </div>
-		    
-        </div>
-    </section>
+
+	<section id="Contact">
+		<div>
+			{{ form_start(contact) }}
+			<div class="form-group">
+				{{ form_row(contact.firstname) }}
+				{{ form_row(contact.lastname) }}
+			</div>
+			<div class="form-group">
+				{{ form_row(contact.email) }}
+			</div>
+			<div class="form-group">
+				{{ form_row(contact.object) }}
+			</div>
+			<div class="form-group">
+				{{ form_row(contact.message) }}
+			</div>
+			{{ form_end(contact) }}
+
+			{#
+			        <form>
+			    <div method="Post" class="form-group" action="index.php">
+			      <input type="text" id="prenom" name="prenom" class="half-width" placeholder="Prénom" required>
+			      <input type="text" id="nom" name="nom" class="half-width" placeholder="Nom"required>
+			    </div>
+			    <div class="form-group">
+			      <input type="email" id="email" name="email" placeholder="Adresse e-mail"required>
+			    </div>
+			    <div class="form-group">
+			      <input type="text" id="objet" name="objet" placeholder="Objet">
+			    </div>
+			    <div class="form-group">
+			      <textarea id="message" name="message" placeholder="Message" rows="8" ></textarea>
+			    </div>
+			    <p>Vous êtes personnel enseignent et souhaitez vous inscrire au concours inter-écoles ?</p>
+			    <label>
+			      <input type="radio" name="choix" value="oui"> Oui
+			    </label>
+			    <label>
+			      <input type="radio" name="choix" value="non"> Non
+			    </label>
+			    <input type="submit" value="Envoyer">
+			  </form>#}
+		</div>
+		<div id="follow">
+			<h4>Suivez-nous !</h4>
+			<p>Pour ne rater aucune nouveauté !</p>
+			<div>
+				<a href="#">
+					<i class="fa-brands fa-instagram"></i>
+				</a>
+				<a href="#">
+					<i class="fa-brands fa-facebook-f"></i>
+				</a>
+				<a href="#">
+					<i class="fa-brands fa-linkedin-in"></i>
+				</a>
+				<a href="#">
+					<i class="fa-brands fa-tiktok"></i>
+				</a>
+			</div>
+
+		</div>
+	</section>
 {% endblock %}
