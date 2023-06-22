@@ -1,34 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Inscription - Rheia{% endblock %}
+{% block title %}Inscription - Rheia
+{% endblock %}
 {% block stylesheets %}
-<style>
-    footer{
-        display:none !important;
-    }
-</style>
+	<style>
+		footer {
+			display: none !important;
+		}
+	</style>
 {% endblock %}
 {% block body %}
-    <section id="inscription">
+	<section id="inscription">
 
-        <div>
+		<div>
+			{{ form_errors(registrationForm) }}
 
-    {{ form_errors(registrationForm) }}
-
-    {{ form_start(registrationForm) }}
-    <h3>Créez votre compte</h3>
-    <div class="form-group">
-        {{ form_row(registrationForm.username) }}
-    </div>
-    <div class="form-group">
-        {{ form_row(registrationForm.email) }}
-        </div>
-    <div class="form-group">
-        {{ form_row(registrationForm.plainPassword) }}
-        </div>
-        <div class="form-group">
-        {{ form_row(registrationForm.agreeTerms) }}
-</div>
-        <input type="submit" value="S'inscrire">
-    {{ form_end(registrationForm) }}
+			{{ form_start(registrationForm) }}
+			<h3>Créez votre compte</h3>
+			<div class="form-group">
+				{{ form_row(registrationForm.username) }}
+			</div>
+			<div class="form-group">
+				{{ form_row(registrationForm.email) }}
+			</div>
+			<div class="form-group">
+				{{ form_row(registrationForm.plainPassword) }}
+			</div>
+			<div class="form-group">
+				{{ form_row(registrationForm.agreeTerms) }}
+			</div>
+			<input type="submit" value="S'inscrire">
+			{{ form_end(registrationForm) }}
+		</div>
+	</div>
+</section>
 {% endblock %}
