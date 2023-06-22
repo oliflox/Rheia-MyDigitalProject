@@ -39,6 +39,7 @@ class CartController extends AbstractController
     #[Route('/mon-panier/plus/{id<\d+>}', name: 'cart_plus')]
     public function plusToCart(CartService $cartService, int $id): RedirectResponse
     {
+
         $cartService->plusToCart($id);
 
         return $this->redirectToRoute('cart_index');
