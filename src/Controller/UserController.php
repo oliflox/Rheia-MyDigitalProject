@@ -77,6 +77,9 @@ class UserController extends AbstractController
     #[Route('/adress', name: 'user_adress')]
     public function adress(): Response
     {
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_login');
+        }
 
         return $this->render('user/address.html.twig');
     }

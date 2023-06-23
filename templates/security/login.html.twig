@@ -23,6 +23,9 @@
                         Vous êtes connecté avec l'adresse {{ app.user.email }}<a href="{{ path('app_logout') }}">Se déconnecter</a>
                     </div>
                 {% endif %}
+                {% for message in app.flashes('success') %}
+			<span style="color:#8C40FF;">{{ message }}</span>
+		{% endfor %}
                 <h3>Connectez-vous à votre compte</h3>
                 <div class="form-group">
                     <input type="email" value="{{ last_username }}" name="email"class="form-control" autocomplete="email" placeholder="Adresse e-mail" required autofocus> 
@@ -36,5 +39,8 @@
                 >
 
                 <input type="submit" value="Se connecter">
+                <p>Pas encore de compte ? <a href="{{ path('app_register') }}">Inscrivez-vous</a></p> 
             </form>
+            </div>
+        </section>
 {% endblock %}
