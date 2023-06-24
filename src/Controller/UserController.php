@@ -24,6 +24,11 @@ class UserController extends AbstractController
     #[Route('/EditUserInfo', name: 'user_edit')]
     public function edit(Request $request, ManagerRegistry $doctrine): Response
     {
+
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_login');
+        }
+        
         $user = $this->getUser();
         $form = $this->createForm(EditProfileType::class, $user);
 
@@ -49,6 +54,11 @@ class UserController extends AbstractController
     #[Route('/EditUserAdress', name: 'edit_adress')]
     public function EditAdress(Request $request, ManagerRegistry $doctrine): Response
     {
+
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_login');
+        }
+
         $user = $this->getUser();
 
         $address = new Adress();
